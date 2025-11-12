@@ -1,5 +1,5 @@
 # Documentació breu
-Documentació en format markdown.
+<h1>Imbécil</h1>
 ## Apartat 1
 
 ## Apartat 2
