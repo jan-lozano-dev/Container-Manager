@@ -1,0 +1,1 @@
+Comentarios en la especificacion comparando el porque empleamos que estructuras de datos en comparacion con otras (BST, TST, ...)
