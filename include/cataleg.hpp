@@ -1,8 +1,8 @@
 #ifndef _CATALEG_HPP
 #define _CATALEG_HPP 
 #include <string>
-#include <ESINLIB/error>
-#include <ESINLIB/util>
+#include <esin/error>
+#include <esin/util>
 
 using std::string;
 using util::nat;
@@ -30,7 +30,7 @@ public:
   static constexpr int ClauInexistent = 31;
 
 private:
-  //#include "cataleg.rep"
+  #include "cataleg.rep"
 };
-//#include "cataleg.t"
+#include "cataleg.t"
 #endif

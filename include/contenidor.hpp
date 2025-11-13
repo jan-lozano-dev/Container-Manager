@@ -2,8 +2,8 @@
 #define _CONTENIDOR_HPP 
 
 #include <string>
-#include <ESINLIB/error>
-#include <ESINLIB/util>
+#include <esin/error>
+#include <esin/util>
 
 using std::string;
 using util::nat;
@@ -30,6 +30,6 @@ public:
   static constexpr int LongitudIncorrecta = 21;
 
 private:
-  //#include "contenidor.rep"
+  #include "contenidor.rep"
 };
 #endif
