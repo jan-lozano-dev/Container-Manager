@@ -5,7 +5,7 @@
 f : K = -> V ; (K) = Claus ; (V) = Valors
 Funció total: Totes les claus tenen valor associat.
 Funció parcial: No tota clau té valor associat.
-Funció parcial pot transformar-se en total associant valor indefinit a tota clau sense informació associada.
+*Funció parcial pot transformar-se en total associant valor indefinit a tota clau sense informació associada.*
 
 #### Diccionaris: conjunts de parells clau i valor (injectiu)
 
@@ -15,21 +15,21 @@ Diccionari té mètodes com:
 
 #### Conjunts: Cas particular de diccionari
 
-Clau == Elements del conjunt ; Valor == bool. 
+Clau == Elements del conjunt ; Valor == bool.
 
-- True == Element del conjunt. 
+- True == Element del conjunt.
 - False == Elements que no ho és.
 
 ### 6.1.1 Classificació dels diccionaris
 
-Classificació segons operacions d'actualització permesses. 
+Classificació segons operacions d'actualització permesses.
 Sempre existeix operació de consulta de valor associat a clau.
-N = elements del diccionari 
+N = elements del diccionari
 
-- Estàtic: N són coneguts. Prohibit insercions/eliminacions. 
+- *Estàtic*: N són coneguts. Prohibit insercions/eliminacions.
 Té constructor amb vector/llista d'elements.
-- Semidinàmic: Permet inserció i modificació del valor associat a clau. Prohibides eliminacions.
-- Dinàmic: Permet inserció, modificació i eliminacions.
+- *Semidinàmic*: Permet inserció i modificació del valor associat a clau. Prohibides eliminacions.
+- *Dinàmic*: Permet inserció, modificació i eliminacions.
 
 ## 6.2. Especificació
 
@@ -45,8 +45,8 @@ public:
     // Els tres grans.
     dicc(const dicc &d) throw(error);
     dicc& operator=(const dicc &d) throw(error);
-    ~dicc() throw(); 
-    
+    ~dicc() throw();
+
     // Afegeix parell <k, v> a dicc if(!existeix clau k); else(substitueix valor antic per v)
     void insereix(const Clau &k, const Valor &v) throw(error);
 
@@ -66,9 +66,9 @@ private:
 ```
 ### 6.2.2 Operacions adicionals
 
-- Operacions entre dos o més diccionaris: unió, intersecció, diferència.
-- Operacions específiques quan claus són strings: p.e. trobat tot string que comença amb un prefix.
-- Operacions específiques quan claus admeten relació d'ordre total(operació de comparació entre claus):
+- *Operacions entre dos o més diccionaris*: unió, intersecció, diferència.
+- *Operacions específiques quan claus són strings*: p.e. trobat tot string que comença amb un prefix.
+- *Operacions específiques quan claus admeten relació d'ordre total*(operació de comparació entre claus):
     - Operacions per examinar elements en ordre de/creixent.
     - Operacions per posició (p.e. consultar i-èssim)
     - p.e. Eliminar tot element que clau sigui entre dos claus k1 i k2.
@@ -115,7 +115,7 @@ public:
 
         // Pre- i postincrement; avancen iterador.
         iterador& operator++() throw();
-    
+
         // Operadors de comparació.
         bool operator==(const iterator &it) const throw();
         ...
@@ -137,23 +137,19 @@ p.e.
 
 ### Objectiu dels diccionaris
 
-Estructures lineals -> accés consecutiu a elements.
-Diccionaris -> accés individual a elements. inserció, elimina, consulta i existeix tinguin cost menor de O(n).
+*Estructures lineals -> accés consecutiu a elements*
+*Diccionaris -> accés individual a elements*
+inserció, elimina, consulta i existeix tinguin cost menor de O(n).
 
-## 6.5 Implementació 
-Vector indexat per les claus: if(claus == enters) && if(nombre no gaire gran) && if(consecutives dins rang: ClauMIN .. ClauMAX).
+## 6.5 Implementació
 
-Llista enllaçada desordenada
-:
-## 6.5 Implementació 
-
-#### Vector indexat per les claus: 
+#### Vector indexat per les claus:
 if(claus == enters) && if(nombre no gaire gran) && if(consecutives dins rang: ClauMIN .. ClauMAX).
 
-#### Llista enllaçada desordenada: 
+#### Llista enllaçada desordenada:
 Cada node de llista conté clau-valor.
 Cost inserció, eliminació i consultes O(n). Espaial O(n).
-Algorismes simples. 
+Algorismes simples.
 Dicc petit. No bona idea si operacions recorregut ordenat.
 
 #### Llista enllaçada desordenada amb autoorganització
@@ -176,19 +172,15 @@ Cost inserció, eliminació i consulta O(n) en cas pitjor i mig.Avantatge -> Per
 - Taules de dispersió (Hashing Tables)
 - Arbres digitals (tries i variants com TST's)
 
-BST = Binary Search Tree
-TST = Ternary Search Tree
-AVL = ...
-
-## Arbres binaris de cerca
+## 6.6 Arbres binaris de cerca
 
 ### 6.6.1 Definició i exemples
 
 *Arbre binari de cerca (BST)*
 Arbre buit o arbre binari tal que, per tot node:
-- Clau node és més gran que qualsevol clau subarbre esquerre 
+- Clau node és més gran que qualsevol clau subarbre esquerre
 - Clau node és més petita que qualsevol clau de subarbre dret
-- No és necessari que BST sigui complet ni ple. 
+- No és necessari que BST sigui complet ni ple.
 - Quan s'empra BST per implementar un diccionari que guarda parells <clau, valor>, dins cada node de l'arbre es guarda el valor associat a la clau del node.
 
 ### 6.6.2 Especificació
@@ -199,7 +191,7 @@ class dicc{
 public:
     void insereix(const Clau &k, const Valor &v) throw(error);
     void elimina(const Clau &k) throw();
-    void consulta(const Clau &k, bool &hi_es, Valor &v) 
+    void consulta(const Clau &k, bool &hi_es, Valor &v)
         const throw(error);
     ...
 
@@ -207,9 +199,9 @@ private:
     struct node {
         Clau _k;
         Valor _v;
-        node* _esq;    
+        node* _esq;
         node* _dret;
-        node(const Clau &k, const Valor &v, node *esq = nullptr, 
+        node(const Clau &k, const Valor &v, node *esq = nullptr,
             node* dret = nullptr) throw(error);
     };
 
@@ -239,13 +231,113 @@ Implementació a la pàg 20 del pdf de temari ESIN.
 
 #### 6.6.3.2 b) Obtenir llista ordenada de tot element del BST.
 
-fill_esq < node < fill_dret -> Cal recórrer l'arbre en inordre:
-- Primer els elements del subarbre en inordre
-- Després l'arrel
-- Després
+Recorregut en inordre (fill_esq < node < fill_dret) O(n)
 
 #### 6.6.3.3 c) Mínim i Máxim
+
+Mínim == 1r element en inordre == Fill més a l'esquerra
+Maxím == Últim element en inordre == Fill més a la dreta
+Cost == O(h)
+
 #### 6.6.3.4 d) Inserir un element
-#### 6.6.3.5 e) Eliminar un element 
+
+Sempre al inserir, s'insereix una fulla.
+O es troba l'element (i no s'insereix)
+O es troba lloc on insertar
+Algoritme molt semblant a una cerca
+
+[Veure implementacions a pàgines 23->25 de la documentació d'ESIN.]
+
+#### 6.6.3.5 e) Eliminar un element
+
+Operació més complexa dels BST.
+Diverses posibles situacions:
+a) *Eliminar fulla* -> Simplement s'elimina el subarbre.
+b) *Eliminar node amb un fill* -> Enllaçar pare de node eliminat amb únic fill.
+c) *Eliminar node amb dos fills* -> Dues alternatives
+    c.1) Canviar node a eliminar per successor i eliminar successor
+    c.2) Canviar node a eliminar per predecessor i eliminar predecessor.
+    IMPORTANT: és millor alternar entre mètode c.1 i c.2 per millorar distribució del BST. Veure pàgina 29.
+
+[Implementacions a les pàgines 27 -> 29]
 
 ### 6.6.4 Altres algorismes sobre BSTs
+
+BSTs permeten diversos algorismes simples amb costos mitjos O(h)
+
+p.e.1
+retorna llista ordenada amb tot element amb 'k' que k1 <= k <= k2.
+
+```cpp
+template <typename Clau, typename Valor>
+void dicc<Clau, Valor>::llista_interval(const Clau &k1,
+    const rllista_interval(_arrel, k1, k2, L);
+
+template <typename Clau, typename Valor>
+static void dicc<Clau, Valor>::rllista_interval(node *n, const Clau &k1,
+    const Clau &k2, list<Valor> &L) throw(error)
+{
+    if(n != nullptr) {
+        if(k1 <= n->_k) rllista_interval(n->_esq, k1, k2, L);
+        if(k1 <= n->_k && n->_k <= k2) L.push_back(n->_v);
+        if(k2 >= n->_k) rllista_interval(n->_dret, k1, k2, L);
+    }
+}
+
+```
+[A la pàgina 31 hi ha un altre exemple: Consulta o eliminació d’un element del BST per posició]
+
+## 6.7 BSTs equilibrats (AVLs) (Adelson-Velsky i Landis)
+
+### 6.7.1 Definició i exemples
+
+Cost en majoria mètodes BST són O(h).
+En pitjor cas, BST de n elements pot tenir alçada h = n. Operacions tindrien cost lineal O(n) ; n == # nodes
+Dos opcions per millorar costos:
+1. No fer res perquè es pot demostrar que si un BST introduïm elements de manera aleatòria, alçada d'arbre és O(log(n))
+
+2. Podem forçar insercions i suspressions dins arbre mantinguin alçada log(n). Elements, +/- repartits equilibradament. Cost operacions serà logarítmic perquè alçada log(n).
+
+Factor d'equilibri d'un node = |altura(fill_esquerre - altura(fill_dret|
+
+Diferència màxima alçades dels subarbres d'un node <= 1.
+
+### 6.7.2 Inserció en un arbre AVL
+
+Dues etapes:
+- Inserir tenint en compte -> BST
+    -> if(node < arrel) baixar per esquerra; else per dreta.
+- Cal assegurar arbre queda equilibrat. Reestructurar si cal.
+
+*Desequilibri*
+Subarbre actual = A
+1. Subarbre dret d'A té h + 1, mentre Subarbre esquerre té h.
+    Inserció anirà a dreta.
+    S'incrementa en 1 alçada subarbre dret.
+2. Subarbre esquerre d'A té h + 1, subarbre dret té h.
+    Inserció anirà a esquerra.
+    S'incrementa en 1 alçada subarbre esquerre.
+
+Ambdues situacions són simètriques. Només ens centrarem en la 1a. Dos subcasos:
+- Cas DD(Dreta-Dreta)
+- Cas DE(Dreta-Esquerre)
+
+#### 6.7.2.1 Cas Dreta-Dreta
+
+Node s'insereix en subarbre dret de subarbre dret. Recorregut en inordre abans i desprès de reestructuració és el mateix.
+
+#### 6.7.2.2 Cas Dreta-Esquerre
+
+Node s'insereix en subarbre esquerre del subarbre dret. Reestructuració en dos passos:
+
+1. Rotació cap a dreta voltant node B.
+2. Rotació cap esquerre voltant node A.
+
+[Veure figura 6.10 i 6.11 en pàgina 40, Tema 6, Teoria ESIN]
+
+### 6.7.3 Supressió en AVL
+
+Els mateixos dos casos de l'inserció però al invers, reduïnt les alçades.
+
+1. Subarbre dret d'A té h + 1. Subarbre esquerre té h. Node a eliminar en subarbre esquerre.
+2. Subarbre esquerre d'A té h + 1. Subarbre dret té h. Node a eliminar en subarbre dret -> decrement en 1 de la seva alçada.
