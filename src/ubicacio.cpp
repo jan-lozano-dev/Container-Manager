@@ -7,7 +7,16 @@
 // Constructor
 ubicacio::ubicacio(int i, int j, int k)
 	: _fila{i}, _columna{j}, _altura{k}
-{}
+{
+    bool cas_especial = (i == -1 && j == 0 && k == 0) ||
+            (i == -1 && j == -1 && k == -1);
+
+    bool cas_normal = (i >= 0 || j >= 0 || k >= 0);
+
+    if(!cas_especial && !cas_normal)
+        throw error(UbicacioIncorrecta);
+
+}
 
 // Constructor per copia
 ubicacio::ubicacio(const ubicacio& u)
