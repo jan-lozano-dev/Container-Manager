@@ -341,3 +341,105 @@ Els mateixos dos casos de l'inserció però al invers, reduïnt les alçades.
 
 1. Subarbre dret d'A té h + 1. Subarbre esquerre té h. Node a eliminar en subarbre esquerre.
 2. Subarbre esquerre d'A té h + 1. Subarbre dret té h. Node a eliminar en subarbre dret -> decrement en 1 de la seva alçada.
+
+Ambdues situacions simètriques. Ens centrem en la 1a.
+
+#### 6.7.3.1 Cas DD (Dreta-Dreta) amb manteniment d'altura
+
+B = Subarbre dret de A
+If(dos subarbres de B tenen mateixa alçada) ens trobem en desequilibri DD del cas d'inserió, es resol amb mateixa manera.
+Arbre resultant té mateixa alçada abans i després de supressió. Amb una rotació s'arregla.
+
+#### 6.7.3.2 Cas DD (Dreta-Dreta) amb disminució d'altura
+
+B = subarbre dret de A
+If(alçada subarbre esquerre de B < alçada subarbre dret de B) rotació igual que abans; però alçada és una unitat més petita que abans de la supressió. Obliga a examinar si algun subarbre que l'engloba també es desequilibra.
+
+#### 6.7.3.3 Cas DE (Dreta-Esquerre)
+
+B = subarbre dret de A
+if(alçada subarbre esquerre de B > alçada subarbre dret de B) rotació similar a cas Dreta-Esquerre. Alçada resultat és una unitat més petita que abans de supressió. Obliga a examinar si algun subarbre que l'engloba també es desequilibra.
+
+## 6.8 Algorisme d'ordenació quicksort
+
+### 6.8.1 Introducció
+
+Quicksort empra "divideix i venceràs" però no assegura divisió en parts de mida similar.
+Quicksort parteix. Donat un element *p* (1r) anomenat *pivot*, reorganitzem els elements col·locant a l'esquerre del pivot els més petits i a dreta els més grans.
+
+p | <= p |              | >= p      |
+|        |              |           |
+u        i              j           v
+
+<= p        | p | >= p              |
+|           |   |                   |
+u               j  i                v
+
+Després només caldrà ordenar trossos a esquerre i dreta de pivot fent dues crides recurisves a quicksort.
+Fusió no és necessària, trossos a ordenar queden ben repartits.
+Mentre mergesort la partició és simple i la feina important és a la fusió, quicksort és tot el contrari
+
+### 6.8.2
+
+```cpp
+template <typename T>
+void quicksort(T A[], nat u, nat v)
+{
+    if(v-u+1 <= M)
+    {
+        //Emprar algorisme d'ordenació simple
+        //p.e.
+    }
+    else
+    {
+        nat k = particio(A, u, v);
+        quicksort(A, u, k-1);
+        quicksort(A, k+1, v);
+    }
+}
+
+template<typename T>
+nat particio(T A[], nat u, nat v)
+{
+    nat i, j;
+    T p = A[u];
+    i = u+1;
+    j = v;
+
+    while(i < j+1)
+    {
+        while(i<j+1 && A[i]<=p) ++i;
+        while(i<j+1 && A[j]>=p) --j;
+        if(i < j+1)
+        {
+            T aux = A[j]; //intercanvi
+            A[j] = A[i];
+            A[i] =  aux;
+        }
+        T aux = A[u];   //intercanvi pivot i last dels menors
+        A[u] = A[j];
+        A[j] = aux;
+        return j;
+    }
+}
+```
+
+### 6.8.3 Cost
+
+Cas pitjor -> O(n²) | Un dels trossos té molts pocs elements, altre té gairebé tots. Ja estava ordenat de/creixentment.
+Si ordenem vector desordenat, pivot +/- centrat a meitat de vector.
+- Cas similar a mergesort.
+- Cost 1 iteració de quicksort (partició) -> lineal
+- Dues crides amb trossos +/- a meitat de l'original, cost quasi-lineal -> O(n * log(n))
+
+## 6.9 Taules de dispersió
+
+### 6.9.1 Definició
+
+*Taula de dispersió (hash table / taula d'adreçament calculat)* emmagatzema conjunt d'elements identificats amb una clau:
+- Dins d'una taula D[0 .. M - 1]
+- Mitjançant *funció de dispersió (hash function, h())* que va de conjunt de claus *K* fins conjunt de posicions de la taula *D*.:
+    - claus -> valors de dispersió (posicions taula)
+    - h: K -> 0 .. M - 1
+
+Idealment h() seria injectiva. Però, pot existir dues claus amb mateixa posició a la taula.
