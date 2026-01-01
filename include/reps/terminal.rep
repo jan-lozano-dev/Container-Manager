@@ -1,0 +1,3 @@
+string _on;
+string _longitud;
+const static nat HMAX = 7;
