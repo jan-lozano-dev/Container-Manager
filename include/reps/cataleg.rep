@@ -1,3 +1,8 @@
+// Representació amb taula de dispersió amb encadenament
+
+// Hem escollit una taula de dispersió amb encadenament per resoldre col·lisions degut
+// a la seva eficiència en termes d'operacions d'inserció, cerca i esborrat.
+
 struct node_hash {
     string _k;
     Valor _v;

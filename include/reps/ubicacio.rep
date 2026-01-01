@@ -1,1 +1,6 @@
+// Representació d'una ubicació d'un contenidor
+
+// Hem escollit aquesta distribució degut a que ens permet construir la ubicació
+// a partir de variables contigues en memòria.
+
 int _fila, _columna, _altura;

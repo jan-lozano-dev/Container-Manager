@@ -10,27 +10,57 @@ using util::nat;
 template <typename Valor>
 class cataleg {
 public:
-  explicit cataleg(nat numelems);
 
-  cataleg(const cataleg& c);
-  cataleg& operator=(const cataleg& c);
-  ~cataleg() noexcept;
+    // Constructora per defecte
+    // Pre: numelems > 0
+    // Post: crea un catàleg buit amb capacitat per a numelems elements
+    explicit cataleg(nat numelems);
 
-  void assig(const string &k, const Valor &v);
+    // Constructora de còpia
+    // Pre: cert
+    // Post: crea un catàleg que és còpia de c
+    cataleg(const cataleg& c);
 
-  void elimina(const string &k);
+    // Operador d'assignació
+    // Pre: cert
+    // Post: el catàleg actual és una còpia de c
+    cataleg& operator=(const cataleg& c);
 
-  bool existeix(const string &k) const noexcept;
+    // Destructora
+    // Pre: Existeix un P.I vàlid.
+    // Post: El P.I es destruit.
+    ~cataleg() noexcept;
 
-  Valor operator[](const string &k) const;
+    // Assignació
+    // Pre: -
+    // Post: assigna el valor v a la clau k
+    void assig(const string &k, const Valor &v);
 
-  nat quants() const noexcept;
+    // Eliminació
+    // Pre: -
+    // Post: elimina l'entrada amb clau k
+    void elimina(const string &k);
 
-  static constexpr int ClauStringBuit = 30;
-  static constexpr int ClauInexistent = 31;
+    // Consultors
+    // Pre: -
+    // Post: Retorna si existeix una entrada a la taula que correspon amb k.
+    bool existeix(const string &k) const noexcept;
+
+    // Pre: -
+    // Post: Retorna el valor associat a la clau k.
+    Valor operator[](const string &k) const;
+
+    // Pre: Existeix un P.I vàlid.
+    // Post: Retorna quantes claus té.
+    nat quants() const noexcept;
+
+    static constexpr int ClauStringBuit = 30;
+    static constexpr int ClauInexistent = 31;
 
 private:
-  #include "cataleg.rep"
+    #include "cataleg.rep"
 };
+
 #include "cataleg.t"
+
 #endif

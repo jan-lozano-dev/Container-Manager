@@ -1,2 +1,7 @@
+// Representació d'un contenidor
+
+// Hem escollit aquesta distribució degut a que ens permet construir el contenidor
+// de manera que es robusta i eficient per una gestió de terminals de contenidors.
+
 string _matricula;
 unsigned int _longitud;
