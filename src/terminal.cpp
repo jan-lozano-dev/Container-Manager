@@ -29,8 +29,7 @@ terminal& terminal::operator=(const terminal& b) {
 
 // Inserció
 void terminal::insereix_contenidor(const contenidor &c) {
-    // Implementació de la inserció segons l'estratègia seleccionada
-    
+
 }
 
 // Retirada
