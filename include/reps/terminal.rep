@@ -1,37 +1,28 @@
-// Dimensions
-nat _num_fileres;
-nat _num_places;
-nat _altura_max;
+// Estructura per guardar informació d'un contenidor amb la seva ubicació
+struct InfoCont {
+  InfoCont() : cont("A", 10), loc(-1, -1, -1) {}
+  InfoCont(const contenidor &c, const ubicacio &u) : cont(c), loc(u) {}
+  contenidor cont;
+  ubicacio loc;
+};
 
-// Estrategia d'inserció
-estrategia _estrategia;
+nat _n;          // fileres
+nat _m;          // places per filera
+nat _h;          // alçada màxima
+estrategia _est; // estratègia
 
-// Area d'emmegatzematge
-vector<vector<vector<string>>> _megatzem;
+string *_celes;  // cel·les del magatzem
+nat *_altesa;    // altura de cada columna
 
-// Area d'espera
-cataleg<contenidor> _contenidors;
+list<contenidor> _espera; // zona espera
+cataleg<InfoCont> _cat;   // índex de contenidors
 
-// Contador de grua en operació
-nat _ops_grua;
+nat _ops;        // operacions grua
 
-// Busca ubicació per un contenidor segons FIRST FIT
-ubicacio buscar_first_fit(nat longitud_contenidor) const noexcept;
-
-// Busca ubicació per un contenidor segons LLIURE
-ubicacio buscar_lliure(nat longitud_contenidor) const noexcept;
-
-// Verifica si hi ha espai disponible en una ubicació específica
-bool hi_ha_espai(nat fila, nat plaza, nat piso, nat longitud) const noexcept;
-
-// Coloca un contenidor en el megatzem
-void col_locar_magatzem(const string &matricula, const ubicacio &u, nat longitud);
-
-// Retira un contenidor del megatzem
-void retirar_magatzem(const string &matricula);
-
-// Intenta moure contenidor de l'àrea d'espera al megatzem
-void processar_area_espera();
-
-// Mou contenidors sobre una ubicació a l'àrea d'espera
-void netejar_superior(nat fila, nat plaza, nat piso_inici);
+// Mètodes privats
+void col_loca_contenidor_magatzem(const string& mat, const ubicacio& pos, nat places);
+void retira_contenidor_magatzem(const ubicacio& pos, nat places);
+bool intenta_reubicar_espera();
+InfoCont troba_contenidor_superior_marcat(nat fil, nat nivell, const bool* marcat);
+bool cerca_forat_ff(nat places, nat &rf, nat &rc, nat &rp);
+bool cerca_forat_bf(nat places, nat &rf, nat &rc, nat &rp);

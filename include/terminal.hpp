@@ -1,9 +1,12 @@
 #ifndef _TERMINAL_HPP
-#define _TERMINAL_HPP 
+#define _TERMINAL_HPP
 #include <list>
 #include <string>
+#include <vector>
 #include <esin/error>
 #include <esin/util>
+
+using std::vector;
 
 #include "cataleg.hpp"
 #include "contenidor.hpp"

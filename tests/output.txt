@@ -1,0 +1,5525 @@
+##!===========================================================
+##! JOC DE PROVES PUBLIC
+##!===========================================================
+##!
+##! Memoria general
+set_memory 100000 1000000000
+##!
+##!
+##!
+##!-----------------------------------------------------------
+##! JOC DE PROVES DE CONTENIDOR
+##!-----------------------------------------------------------
+##!
+load jp_public_contenidor.in
+##!----------------------------------------------
+##!
+##! JOCS DE PROVES DE LA CLASSE CONTENIDOR
+##!
+##!----------------------------------------------
+##!
+##!
+##!------------------------------------------------------------------
+##1 Errors
+##!------------------------------------------------------------------
+##!
+##!------------------------------------------------------------------
+##1.1 Error 20: Matricula incorrecta
+##!------------------------------------------------------------------
+##!
+init c contenidor AAAAAAAAAAAa 10
+Error 20 [contenidor]: Matricula incorrecta.
+#Error::contenidor:20:Matricula incorrecta.
+init c contenidor ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstxyz 10
+Error 20 [contenidor]: Matricula incorrecta.
+#Error::contenidor:20:Matricula incorrecta.
+init c contenidor ABCÇDEFGHIJKLMNÑOPQRSTUVWXYZ 10
+Error 20 [contenidor]: Matricula incorrecta.
+#Error::contenidor:20:Matricula incorrecta.
+init c contenidor ABCDEFGHIJKLMNOPQRSTUVWXYZÁÀÉÈÍÌÓÒÚÙÄËÏÖÜÂÊÎÔÛ 10
+Error 20 [contenidor]: Matricula incorrecta.
+#Error::contenidor:20:Matricula incorrecta.
+init c contenidor ABCDEFGHIJKLMNOPQRSTUVWXYZÇÑÁÀÉÈÍÌÓÒÚÙÄËÏÖÜÂÊÎÔÛabcdefghijklmnopqrstxyzçñáàéèíìóòúùäëïöüâêîôû[]()!"·$%&/=?¿*-_.:,;\ºª@#~¬{}´`^ 10
+Error 20 [contenidor]: Matricula incorrecta.
+#Error::contenidor:20:Matricula incorrecta.
+init c contenidor ABCDEFGHIJKLMNOPQRSTUVWXYZÇÑÁÀÉÈÍÌÓÒÚÙÄËÏÖÜÂÊÎÔÛabcdefghijklmnopqrstxyzçñáàéèíìóòúùäëïöüâêîôû 11
+Error 20 [contenidor]: Matricula incorrecta.
+#Error::contenidor:20:Matricula incorrecta.
+##!
+##!
+##!----------------------------------------------
+##1.2 Error 21: Longitud incorrecta
+##!----------------------------------------------
+##!
+init c contenidor ABCDEFGHIJKLMNOPQRSTUVWXYZ 11
+Error 21 [contenidor]: Longitud incorrecta.
+#Error::contenidor:21:Longitud incorrecta.
+init c contenidor ABCDEFGHIJKLMNOPQRSTUVWXYZ 100
+Error 21 [contenidor]: Longitud incorrecta.
+#Error::contenidor:21:Longitud incorrecta.
+init c contenidor ABCDEFGHIJKLMNOPQRSTUVWXYZ 12
+Error 21 [contenidor]: Longitud incorrecta.
+#Error::contenidor:21:Longitud incorrecta.
+init c contenidor ABCDEFGHIJKLMNOPQRSTUVWXYZ 210
+Error 21 [contenidor]: Longitud incorrecta.
+#Error::contenidor:21:Longitud incorrecta.
+##!
+##!
+##!
+##!----------------------------------------------
+##2. Mètodes consultors
+##!----------------------------------------------
+##!
+init a1 contenidor A1 10
+init a2 contenidor A1 20
+init a3 contenidor A1 30
+init b1 contenidor B1 10
+init b2 contenidor B1 20
+init b3 contenidor B1 30
+##!
+##!
+##!----------------------------------------------
+##2.1 Matricula
+##!----------------------------------------------
+##!
+a1 matricula
+A1
+#A1
+a2 matricula
+A1
+#A1
+a3 matricula
+A1
+#A1
+b1 matricula
+B1
+#B1
+b2 matricula
+B1
+#B1
+b3 matricula
+B1
+#B1
+##!
+##!
+##!----------------------------------------------
+##2.2 Longitud
+##!----------------------------------------------
+##!
+a1 longitud
+10
+#10
+a2 longitud
+20
+#20
+a3 longitud
+30
+#30
+b1 longitud
+10
+#10
+b2 longitud
+20
+#20
+b3 longitud
+30
+#30
+##!
+##!
+##!
+##!----------------------------------------------
+##3 Operadors de comparacio
+##!----------------------------------------------
+##!
+##!----------------------------------------------
+##3.1 Operador ==
+##!----------------------------------------------
+##!
+a1 == a1
+true
+#true
+a1 == a2
+false
+#false
+a1 == a3
+false
+#false
+a1 == b1
+false
+#false
+a1 == b2
+false
+#false
+a1 == b3
+false
+#false
+a2 == a1
+false
+#false
+a2 == a2
+true
+#true
+a2 == a3
+false
+#false
+a2 == b1
+false
+#false
+a2 == b2
+false
+#false
+a2 == b3
+false
+#false
+a3 == a1
+false
+#false
+a3 == a2
+false
+#false
+a3 == a3
+true
+#true
+a3 == b1
+false
+#false
+a3 == b2
+false
+#false
+a3 == b3
+false
+#false
+b1 == a1
+false
+#false
+b1 == a2
+false
+#false
+b1 == a3
+false
+#false
+b1 == b1
+true
+#true
+b1 == b2
+false
+#false
+b1 == b3
+false
+#false
+b2 == a1
+false
+#false
+b2 == a2
+false
+#false
+b2 == a3
+false
+#false
+b2 == b1
+false
+#false
+b2 == b2
+true
+#true
+b2 == b3
+false
+#false
+b3 == a1
+false
+#false
+b3 == a2
+false
+#false
+b3 == a3
+false
+#false
+b3 == b1
+false
+#false
+b3 == b2
+false
+#false
+b3 == b3
+true
+#true
+##!
+##!
+##!----------------------------------------------
+##3.2 Operador =!
+##!----------------------------------------------
+##!
+a1 != a1
+false
+#false
+a1 != a2
+true
+#true
+a1 != a3
+true
+#true
+a1 != b1
+true
+#true
+a1 != b2
+true
+#true
+a1 != b3
+true
+#true
+a2 != a1
+true
+#true
+a2 != a2
+false
+#false
+a2 != a3
+true
+#true
+a2 != b1
+true
+#true
+a2 != b2
+true
+#true
+a2 != b3
+true
+#true
+a3 != a1
+true
+#true
+a3 != a2
+true
+#true
+a3 != a3
+false
+#false
+a3 != b1
+true
+#true
+a3 != b2
+true
+#true
+a3 != b3
+true
+#true
+b1 != a1
+true
+#true
+b1 != a2
+true
+#true
+b1 != a3
+true
+#true
+b1 != b1
+false
+#false
+b1 != b2
+true
+#true
+b1 != b3
+true
+#true
+b2 != a2
+true
+#true
+b2 != a3
+true
+#true
+b2 != b1
+true
+#true
+b2 != b2
+false
+#false
+b2 != b3
+true
+#true
+b3 != a1
+true
+#true
+b3 != a2
+true
+#true
+b3 != a3
+true
+#true
+b3 != b1
+true
+#true
+b3 != b2
+true
+#true
+b3 != b3
+false
+#false
+##!
+##!
+##!----------------------------------------------
+##3.3 Operador <
+##!----------------------------------------------
+##!
+a1 < a1
+false
+#false
+a1 < a2
+true
+#true
+a1 < a3
+true
+#true
+a1 < b1
+true
+#true
+a1 < b2
+true
+#true
+a1 < b3
+true
+#true
+a2 < a1
+false
+#false
+a2 < a2
+false
+#false
+a2 < a3
+true
+#true
+a2 < b1
+true
+#true
+a2 < b2
+true
+#true
+a2 < b3
+true
+#true
+a3 < a1
+false
+#false
+a3 < a2
+false
+#false
+a3 < a3
+false
+#false
+a3 < b1
+true
+#true
+a3 < b2
+true
+#true
+a3 < b3
+true
+#true
+b1 < a1
+false
+#false
+b1 < a2
+false
+#false
+b1 < a3
+false
+#false
+b1 < b1
+false
+#false
+b1 < b2
+true
+#true
+b1 < b3
+true
+#true
+b2 < a1
+false
+#false
+b2 < a2
+false
+#false
+b2 < a3
+false
+#false
+b2 < b1
+false
+#false
+b2 < b2
+false
+#false
+b2 < b3
+true
+#true
+b3 < a1
+false
+#false
+b3 < a2
+false
+#false
+b3 < a3
+false
+#false
+b3 < b1
+false
+#false
+b3 < b2
+false
+#false
+b3 < b3
+false
+#false
+##!
+##!
+##!----------------------------------------------
+##3.4 Operador <=
+##!----------------------------------------------
+##!
+a1 <= a1
+true
+#true
+a1 <= a2
+true
+#true
+a1 <= a3
+true
+#true
+a1 <= b1
+true
+#true
+a1 <= b2
+true
+#true
+a1 <= b3
+true
+#true
+a2 <= a1
+false
+#false
+a2 <= a2
+true
+#true
+a2 <= a3
+true
+#true
+a2 <= b1
+true
+#true
+a2 <= b2
+true
+#true
+a2 <= b3
+true
+#true
+a3 <= a1
+false
+#false
+a3 <= a2
+false
+#false
+a3 <= a3
+true
+#true
+a3 <= b1
+true
+#true
+a3 <= b2
+true
+#true
+a3 <= b3
+true
+#true
+b1 <= a1
+false
+#false
+b1 <= a2
+false
+#false
+b1 <= a3
+false
+#false
+b1 <= b1
+true
+#true
+b1 <= b2
+true
+#true
+b1 <= b3
+true
+#true
+b2 <= a1
+false
+#false
+b2 <= a2
+false
+#false
+b2 <= a3
+false
+#false
+b2 <= b1
+false
+#false
+b2 <= b2
+true
+#true
+b2 <= b3
+true
+#true
+b3 <= a1
+false
+#false
+b3 <= a2
+false
+#false
+b3 <= a3
+false
+#false
+b3 <= b1
+false
+#false
+b3 <= b2
+false
+#false
+b3 <= b3
+true
+#true
+##!
+##!
+##!----------------------------------------------
+##3.5 Operador >
+##!----------------------------------------------
+##!
+a1 > a1
+false
+#false
+a1 > a2
+false
+#false
+a1 > a3
+false
+#false
+a1 > b1
+false
+#false
+a1 > b2
+false
+#false
+a1 > b3
+false
+#false
+a2 > a1
+true
+#true
+a2 > a2
+false
+#false
+a2 > a3
+false
+#false
+a2 > b1
+false
+#false
+a2 > b2
+false
+#false
+a2 > b3
+false
+#false
+a3 > a1
+true
+#true
+a3 > a2
+true
+#true
+a3 > a3
+false
+#false
+a3 > b1
+false
+#false
+a3 > b2
+false
+#false
+a3 > b3
+false
+#false
+b1 > a1
+true
+#true
+b1 > a2
+true
+#true
+b1 > a3
+true
+#true
+b1 > b1
+false
+#false
+b1 > b2
+false
+#false
+b1 > b3
+false
+#false
+b2 > a1
+true
+#true
+b2 > a2
+true
+#true
+b2 > a3
+true
+#true
+b2 > b1
+true
+#true
+b2 > b2
+false
+#false
+b2 > b3
+false
+#false
+b3 > a1
+true
+#true
+b3 > a2
+true
+#true
+b3 > a3
+true
+#true
+b3 > b1
+true
+#true
+b3 > b2
+true
+#true
+b3 > b3
+false
+#false
+##!
+##!
+##!----------------------------------------------
+##3.6 Operador >=
+##!----------------------------------------------
+##!
+a1 >= a1
+true
+#true
+a1 >= a2
+false
+#false
+a1 >= a3
+false
+#false
+a1 >= b1
+false
+#false
+a1 >= b2
+false
+#false
+a1 >= b3
+false
+#false
+a2 >= a1
+true
+#true
+a2 >= a2
+true
+#true
+a2 >= a3
+false
+#false
+a2 >= b1
+false
+#false
+a2 >= b2
+false
+#false
+a2 >= b3
+false
+#false
+a3 >= a1
+true
+#true
+a3 >= a2
+true
+#true
+a3 >= a3
+true
+#true
+a3 >= b1
+false
+#false
+a3 >= b2
+false
+#false
+a3 >= b3
+false
+#false
+b1 >= a1
+true
+#true
+b1 >= a2
+true
+#true
+b1 >= a3
+true
+#true
+b1 >= b1
+true
+#true
+b1 >= b2
+false
+#false
+b1 >= b3
+false
+#false
+b2 >= a1
+true
+#true
+b2 >= a2
+true
+#true
+b2 >= a3
+true
+#true
+b2 >= b1
+true
+#true
+b2 >= b2
+true
+#true
+b2 >= b3
+false
+#false
+b3 >= a1
+true
+#true
+b3 >= a2
+true
+#true
+b3 >= a3
+true
+#true
+b3 >= b1
+true
+#true
+b3 >= b2
+true
+#true
+b3 >= b3
+true
+#true
+##!
+##!
+##!
+##!----------------------------------------------
+##4 Constructora per copia
+##!----------------------------------------------
+##!
+initcopy c1 = b1
+Error 4 [gen_driver]: Object not found
+initcopy c2 = b2
+Error 4 [gen_driver]: Object not found
+initcopy c3 = b3
+Error 4 [gen_driver]: Object not found
+##!
+##!
+##!----------------------------------------------
+##4.1 Matricula
+##!----------------------------------------------
+##!
+c1 matricula
+Error 5 [gen_driver]: Wrong object type
+#B1
+c2 matricula
+Error 5 [gen_driver]: Wrong object type
+#B1
+c3 matricula
+Error 5 [gen_driver]: Wrong object type
+#B1
+##!
+##!
+##!----------------------------------------------
+##4.2 Longitud
+##!----------------------------------------------
+##!
+c1 longitud
+Error 5 [gen_driver]: Wrong object type
+#10
+c2 longitud
+Error 5 [gen_driver]: Wrong object type
+#20
+c3 longitud
+Error 5 [gen_driver]: Wrong object type
+#30
+##!
+##!
+##!----------------------------------------------
+##4.3 Operador ==
+##!----------------------------------------------
+##!
+a1 == a1
+true
+#true
+a1 == a2
+false
+#false
+a1 == a3
+false
+#false
+a1 == c1
+Error 4 [gen_driver]: Object not found
+#false
+a1 == c2
+Error 4 [gen_driver]: Object not found
+#false
+a1 == c3
+Error 4 [gen_driver]: Object not found
+#false
+a2 == a1
+false
+#false
+a2 == a2
+true
+#true
+a2 == a3
+false
+#false
+a2 == c1
+Error 4 [gen_driver]: Object not found
+#false
+a2 == c2
+Error 4 [gen_driver]: Object not found
+#false
+a2 == c3
+Error 4 [gen_driver]: Object not found
+#false
+a3 == a1
+false
+#false
+a3 == a2
+false
+#false
+a3 == a3
+true
+#true
+a3 == c1
+Error 4 [gen_driver]: Object not found
+#false
+a3 == c2
+Error 4 [gen_driver]: Object not found
+#false
+a3 == c3
+Error 4 [gen_driver]: Object not found
+#false
+c1 == a1
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c1 == a2
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c1 == a3
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c1 == c1
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c1 == c2
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c1 == c3
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c2 == a1
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c2 == a2
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c2 == a3
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c2 == c1
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c2 == c2
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c2 == c3
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c3 == a1
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c3 == a2
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c3 == a3
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c3 == c1
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c3 == c2
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c3 == c3
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+##!
+##!
+##!----------------------------------------------
+##4.4 Operador =!
+##!----------------------------------------------
+##!
+a1 != a1
+false
+#false
+a1 != a2
+true
+#true
+a1 != a3
+true
+#true
+a1 != c1
+Error 4 [gen_driver]: Object not found
+#true
+a1 != c2
+Error 4 [gen_driver]: Object not found
+#true
+a1 != c3
+Error 4 [gen_driver]: Object not found
+#true
+a2 != a1
+true
+#true
+a2 != a2
+false
+#false
+a2 != a3
+true
+#true
+a2 != c1
+Error 4 [gen_driver]: Object not found
+#true
+a2 != c2
+Error 4 [gen_driver]: Object not found
+#true
+a2 != c3
+Error 4 [gen_driver]: Object not found
+#true
+a3 != a1
+true
+#true
+a3 != a2
+true
+#true
+a3 != a3
+false
+#false
+a3 != c1
+Error 4 [gen_driver]: Object not found
+#true
+a3 != c2
+Error 4 [gen_driver]: Object not found
+#true
+a3 != c3
+Error 4 [gen_driver]: Object not found
+#true
+c1 != a1
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c1 != a2
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c1 != a3
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c1 != c1
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c1 != c2
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c1 != c3
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c2 != a2
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c2 != a3
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c2 != c1
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c2 != c2
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c2 != c3
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c3 != a1
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c3 != a2
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c3 != a3
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c3 != c1
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c3 != c2
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c3 != c3
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+##!
+##!
+##!----------------------------------------------
+##4.5 Operador <
+##!----------------------------------------------
+##!
+a1 < a1
+false
+#false
+a1 < a2
+true
+#true
+a1 < a3
+true
+#true
+a1 < c1
+Error 4 [gen_driver]: Object not found
+#true
+a1 < c2
+Error 4 [gen_driver]: Object not found
+#true
+a1 < c3
+Error 4 [gen_driver]: Object not found
+#true
+a2 < a1
+false
+#false
+a2 < a2
+false
+#false
+a2 < a3
+true
+#true
+a2 < c1
+Error 4 [gen_driver]: Object not found
+#true
+a2 < c2
+Error 4 [gen_driver]: Object not found
+#true
+a2 < c3
+Error 4 [gen_driver]: Object not found
+#true
+a3 < a1
+false
+#false
+a3 < a2
+false
+#false
+a3 < a3
+false
+#false
+a3 < c1
+Error 4 [gen_driver]: Object not found
+#true
+a3 < c2
+Error 4 [gen_driver]: Object not found
+#true
+a3 < c3
+Error 4 [gen_driver]: Object not found
+#true
+c1 < a1
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c1 < a2
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c1 < a3
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c1 < c1
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c1 < c2
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c1 < c3
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c2 < a1
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c2 < a2
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c2 < a3
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c2 < c1
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c2 < c2
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c2 < c3
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c3 < a1
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c3 < a2
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c3 < a3
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c3 < c1
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c3 < c2
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c3 < c3
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+##!
+##!
+##!----------------------------------------------
+##4.6 Operador <=
+##!----------------------------------------------
+##!
+a1 <= a1
+true
+#true
+a1 <= a2
+true
+#true
+a1 <= a3
+true
+#true
+a1 <= c1
+Error 4 [gen_driver]: Object not found
+#true
+a1 <= c2
+Error 4 [gen_driver]: Object not found
+#true
+a1 <= c3
+Error 4 [gen_driver]: Object not found
+#true
+a2 <= a1
+false
+#false
+a2 <= a2
+true
+#true
+a2 <= a3
+true
+#true
+a2 <= c1
+Error 4 [gen_driver]: Object not found
+#true
+a2 <= c2
+Error 4 [gen_driver]: Object not found
+#true
+a2 <= c3
+Error 4 [gen_driver]: Object not found
+#true
+a3 <= a1
+false
+#false
+a3 <= a2
+false
+#false
+a3 <= a3
+true
+#true
+a3 <= c1
+Error 4 [gen_driver]: Object not found
+#true
+a3 <= c2
+Error 4 [gen_driver]: Object not found
+#true
+a3 <= c3
+Error 4 [gen_driver]: Object not found
+#true
+c1 <= a1
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c1 <= a2
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c1 <= a3
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c1 <= c1
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c1 <= c2
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c1 <= c3
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c2 <= a1
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c2 <= a2
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c2 <= a3
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c2 <= c1
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c2 <= c2
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c2 <= c3
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c3 <= a1
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c3 <= a2
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c3 <= a3
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c3 <= c1
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c3 <= c2
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c3 <= c3
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+##!
+##!
+##!----------------------------------------------
+##4.7 Operador >
+##!----------------------------------------------
+##!
+a1 > a1
+false
+#false
+a1 > a2
+false
+#false
+a1 > a3
+false
+#false
+a1 > c1
+Error 4 [gen_driver]: Object not found
+#false
+a1 > c2
+Error 4 [gen_driver]: Object not found
+#false
+a1 > c3
+Error 4 [gen_driver]: Object not found
+#false
+a2 > a1
+true
+#true
+a2 > a2
+false
+#false
+a2 > a3
+false
+#false
+a2 > c1
+Error 4 [gen_driver]: Object not found
+#false
+a2 > c2
+Error 4 [gen_driver]: Object not found
+#false
+a2 > c3
+Error 4 [gen_driver]: Object not found
+#false
+a3 > a1
+true
+#true
+a3 > a2
+true
+#true
+a3 > a3
+false
+#false
+a3 > c1
+Error 4 [gen_driver]: Object not found
+#false
+a3 > c2
+Error 4 [gen_driver]: Object not found
+#false
+a3 > c3
+Error 4 [gen_driver]: Object not found
+#false
+c1 > a1
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c1 > a2
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c1 > a3
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c1 > c1
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c1 > c2
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c1 > c3
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c2 > a1
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c2 > a2
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c2 > a3
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c2 > c1
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c2 > c2
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c2 > c3
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c3 > a1
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c3 > a2
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c3 > a3
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c3 > c1
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c3 > c2
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c3 > c3
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+##!
+##!
+##!----------------------------------------------
+##4.8 Operador >=
+##!----------------------------------------------
+##!
+a1 >= a1
+true
+#true
+a1 >= a2
+false
+#false
+a1 >= a3
+false
+#false
+a1 >= c1
+Error 4 [gen_driver]: Object not found
+#false
+a1 >= c2
+Error 4 [gen_driver]: Object not found
+#false
+a1 >= c3
+Error 4 [gen_driver]: Object not found
+#false
+a2 >= a1
+true
+#true
+a2 >= a2
+true
+#true
+a2 >= a3
+false
+#false
+a2 >= c1
+Error 4 [gen_driver]: Object not found
+#false
+a2 >= c2
+Error 4 [gen_driver]: Object not found
+#false
+a2 >= c3
+Error 4 [gen_driver]: Object not found
+#false
+a3 >= a1
+true
+#true
+a3 >= a2
+true
+#true
+a3 >= a3
+true
+#true
+a3 >= c1
+Error 4 [gen_driver]: Object not found
+#false
+a3 >= c2
+Error 4 [gen_driver]: Object not found
+#false
+a3 >= c3
+Error 4 [gen_driver]: Object not found
+#false
+c1 >= a1
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c1 >= a2
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c1 >= a3
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c1 >= c1
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c1 >= c2
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c1 >= c3
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c2 >= a1
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c2 >= a2
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c2 >= a3
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c2 >= c1
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c2 >= c2
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c2 >= c3
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c3 >= a1
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c3 >= a2
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c3 >= a3
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c3 >= c1
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c3 >= c2
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c3 >= c3
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+##!
+##!
+##!
+##!----------------------------------------------
+##5 Operador d'assignacio
+##!----------------------------------------------
+##!
+init z1 contenidor Z1 30
+init z2 contenidor Z1 10
+init z3 contenidor Z1 20
+init x1 contenidor X1 10
+init x2 contenidor X1 20
+init x3 contenidor X1 30
+z1 = x1
+Error 1 [gen_driver]: Operation not found: =
+z2 = x2
+Error 1 [gen_driver]: Operation not found: =
+z3 = x3
+Error 1 [gen_driver]: Operation not found: =
+##!
+##!
+##!----------------------------------------------
+##5.1 Matricula
+##!----------------------------------------------
+##!
+z1 matricula
+Z1
+#X1
+z2 matricula
+Z1
+#X1
+z3 matricula
+Z1
+#X1
+##!
+##!
+##!----------------------------------------------
+##5.2 Longitud
+##!----------------------------------------------
+##!
+z1 longitud
+30
+#10
+z2 longitud
+10
+#20
+z3 longitud
+20
+#30
+##!
+##!
+##!----------------------------------------------
+##5.3 Operador ==
+##!----------------------------------------------
+##!
+a1 == a1
+true
+#true
+a1 == a2
+false
+#false
+a1 == a3
+false
+#false
+a1 == b1
+false
+#false
+a1 == b2
+false
+#false
+a1 == b3
+false
+#false
+a1 == z1
+false
+#false
+a1 == z2
+false
+#false
+a1 == z3
+false
+#false
+a2 == a1
+false
+#false
+a2 == a2
+true
+#true
+a2 == a3
+false
+#false
+a2 == b1
+false
+#false
+a2 == b2
+false
+#false
+a2 == b3
+false
+#false
+a2 == z1
+false
+#false
+a2 == z2
+false
+#false
+a2 == z3
+false
+#false
+a3 == a1
+false
+#false
+a3 == a2
+false
+#false
+a3 == a3
+true
+#true
+a3 == b1
+false
+#false
+a3 == b2
+false
+#false
+a3 == b3
+false
+#false
+a3 == z1
+false
+#false
+a3 == z2
+false
+#false
+a3 == z3
+false
+#false
+b1 == a1
+false
+#false
+b1 == a2
+false
+#false
+b1 == a3
+false
+#false
+b1 == b1
+true
+#true
+b1 == b2
+false
+#false
+b1 == b3
+false
+#false
+b1 == z1
+false
+#false
+b1 == z2
+false
+#false
+b1 == z3
+false
+#false
+b2 == a1
+false
+#false
+b2 == a2
+false
+#false
+b2 == a3
+false
+#false
+b2 == b1
+false
+#false
+b2 == b2
+true
+#true
+b2 == b3
+false
+#false
+b2 == z1
+false
+#false
+b2 == z2
+false
+#false
+b2 == z3
+false
+#false
+b3 == a1
+false
+#false
+b3 == a2
+false
+#false
+b3 == a3
+false
+#false
+b3 == b1
+false
+#false
+b3 == b2
+false
+#false
+b3 == b3
+true
+#true
+b3 == z1
+false
+#false
+b3 == z2
+false
+#false
+b3 == z3
+false
+#false
+z1 == a1
+false
+#false
+z1 == a2
+false
+#false
+z1 == a3
+false
+#false
+z1 == b1
+false
+#false
+z1 == b2
+false
+#false
+z1 == b3
+false
+#false
+z1 == z1
+true
+#true
+z1 == z2
+false
+#false
+z1 == z3
+false
+#false
+z2 == a1
+false
+#false
+z2 == a2
+false
+#false
+z2 == a3
+false
+#false
+z2 == b1
+false
+#false
+z2 == b2
+false
+#false
+z2 == b3
+false
+#false
+z2 == z1
+false
+#false
+z2 == z2
+true
+#true
+z2 == z3
+false
+#false
+z3 == a1
+false
+#false
+z3 == a2
+false
+#false
+z3 == a3
+false
+#false
+z3 == b1
+false
+#false
+z3 == b2
+false
+#false
+z3 == b3
+false
+#false
+z3 == z1
+false
+#false
+z3 == z2
+false
+#false
+z3 == z3
+true
+#true
+##!
+##!
+##!----------------------------------------------
+##5.4 Operador =!
+##!----------------------------------------------
+##!
+a1 != a1
+false
+#false
+a1 != a2
+true
+#true
+a1 != a3
+true
+#true
+a1 != b1
+true
+#true
+a1 != b2
+true
+#true
+a1 != b3
+true
+#true
+a1 != z1
+true
+#true
+a1 != z2
+true
+#true
+a1 != z3
+true
+#true
+a2 != a1
+true
+#true
+a2 != a2
+false
+#false
+a2 != a3
+true
+#true
+a2 != b1
+true
+#true
+a2 != b2
+true
+#true
+a2 != b3
+true
+#true
+a2 != z1
+true
+#true
+a2 != z2
+true
+#true
+a2 != z3
+true
+#true
+a3 != a1
+true
+#true
+a3 != a2
+true
+#true
+a3 != a3
+false
+#false
+a3 != b1
+true
+#true
+a3 != b2
+true
+#true
+a3 != b3
+true
+#true
+a3 != z1
+true
+#true
+a3 != z2
+true
+#true
+a3 != z3
+true
+#true
+b1 != a1
+true
+#true
+b1 != a2
+true
+#true
+b1 != a3
+true
+#true
+b1 != b1
+false
+#false
+b1 != b2
+true
+#true
+b1 != b3
+true
+#true
+b1 != z1
+true
+#true
+b1 != z2
+true
+#true
+b1 != z3
+true
+#true
+b2 != a1
+true
+#true
+b2 != a2
+true
+#true
+b2 != a3
+true
+#true
+b2 != b1
+true
+#true
+b2 != b2
+false
+#false
+b2 != b3
+true
+#true
+b2 != z1
+true
+#true
+b2 != z2
+true
+#true
+b2 != z3
+true
+#true
+b3 != a1
+true
+#true
+b3 != a2
+true
+#true
+b3 != a3
+true
+#true
+b3 != b1
+true
+#true
+b3 != b2
+true
+#true
+b3 != b3
+false
+#false
+b3 != z1
+true
+#true
+b3 != z2
+true
+#true
+b3 != z3
+true
+#true
+z1 != a1
+true
+#true
+z1 != a2
+true
+#true
+z1 != a3
+true
+#true
+z1 != b1
+true
+#true
+z1 != b2
+true
+#true
+z1 != b3
+true
+#true
+z1 != z1
+false
+#false
+z1 != z2
+true
+#true
+z1 != z3
+true
+#true
+z2 != a1
+true
+#true
+z2 != a2
+true
+#true
+z2 != a3
+true
+#true
+z2 != b1
+true
+#true
+z2 != b2
+true
+#true
+z2 != b3
+true
+#true
+z2 != z1
+true
+#true
+z2 != z2
+false
+#false
+z2 != z3
+true
+#true
+z3 != a1
+true
+#true
+z3 != a2
+true
+#true
+z3 != a3
+true
+#true
+z3 != b1
+true
+#true
+z3 != b2
+true
+#true
+z3 != b3
+true
+#true
+z3 != z1
+true
+#true
+z3 != z2
+true
+#true
+z3 != z3
+false
+#false
+##!
+##!
+##!----------------------------------------------
+##5.5 Operador <
+##!----------------------------------------------
+##!
+a1 < a1
+false
+#false
+a1 < a2
+true
+#true
+a1 < a3
+true
+#true
+a1 < b1
+true
+#true
+a1 < b2
+true
+#true
+a1 < b3
+true
+#true
+a1 < z1
+true
+#true
+a1 < z2
+true
+#true
+a1 < z3
+true
+#true
+a2 < a1
+false
+#false
+a2 < a2
+false
+#false
+a2 < a3
+true
+#true
+a2 < b1
+true
+#true
+a2 < b2
+true
+#true
+a2 < b3
+true
+#true
+a2 < z1
+true
+#true
+a2 < z2
+true
+#true
+a2 < z3
+true
+#true
+a3 < a1
+false
+#false
+a3 < a2
+false
+#false
+a3 < a3
+false
+#false
+a3 < b1
+true
+#true
+a3 < b2
+true
+#true
+a3 < b3
+true
+#true
+a3 < z1
+true
+#true
+a3 < z2
+true
+#true
+a3 < z3
+true
+#true
+b1 < a1
+false
+#false
+b1 < a2
+false
+#false
+b1 < a3
+false
+#false
+b1 < b1
+false
+#false
+b1 < b2
+true
+#true
+b1 < b3
+true
+#true
+b1 < z1
+true
+#true
+b1 < z2
+true
+#true
+b1 < z3
+true
+#true
+b2 < a1
+false
+#false
+b2 < a2
+false
+#false
+b2 < a3
+false
+#false
+b2 < b1
+false
+#false
+b2 < b2
+false
+#false
+b2 < b3
+true
+#true
+b2 < z1
+true
+#true
+b2 < z2
+true
+#true
+b2 < z3
+true
+#true
+b3 < a1
+false
+#false
+b3 < a2
+false
+#false
+b3 < a3
+false
+#false
+b3 < b1
+false
+#false
+b3 < b2
+false
+#false
+b3 < b3
+false
+#false
+b3 < z1
+true
+#true
+b3 < z2
+true
+#true
+b3 < z3
+true
+#true
+z1 < a1
+false
+#false
+z1 < a2
+false
+#false
+z1 < a3
+false
+#false
+z1 < b1
+false
+#false
+z1 < b2
+false
+#false
+z1 < b3
+false
+#false
+z1 < z1
+false
+#false
+z1 < z2
+false
+#true
+z1 < z3
+false
+#true
+z2 < a1
+false
+#false
+z2 < a2
+false
+#false
+z2 < a3
+false
+#false
+z2 < b1
+false
+#false
+z2 < b2
+false
+#false
+z2 < b3
+false
+#false
+z2 < z1
+true
+#false
+z2 < z2
+false
+#false
+z2 < z3
+true
+#true
+z3 < a1
+false
+#false
+z3 < a2
+false
+#false
+z3 < a3
+false
+#false
+z3 < b1
+false
+#false
+z3 < b2
+false
+#false
+z3 < b3
+false
+#false
+z3 < z1
+true
+#false
+z3 < z2
+false
+#false
+z3 < z3
+false
+#false
+##!
+##!
+##!----------------------------------------------
+##5.6 Operador <=
+##!----------------------------------------------
+##!
+a1 <= a1
+true
+#true
+a1 <= a2
+true
+#true
+a1 <= a3
+true
+#true
+a1 <= b1
+true
+#true
+a1 <= b2
+true
+#true
+a1 <= b3
+true
+#true
+a1 <= z1
+true
+#true
+a1 <= z2
+true
+#true
+a1 <= z3
+true
+#true
+a2 <= a1
+false
+#false
+a2 <= a2
+true
+#true
+a2 <= a3
+true
+#true
+a2 <= b1
+true
+#true
+a2 <= b2
+true
+#true
+a2 <= b3
+true
+#true
+a2 <= z1
+true
+#true
+a2 <= z2
+true
+#true
+a2 <= z3
+true
+#true
+a3 <= a1
+false
+#false
+a3 <= a2
+false
+#false
+a3 <= a3
+true
+#true
+a3 <= b1
+true
+#true
+a3 <= b2
+true
+#true
+a3 <= b3
+true
+#true
+a3 <= z1
+true
+#true
+a3 <= z2
+true
+#true
+a3 <= z3
+true
+#true
+b1 <= a1
+false
+#false
+b1 <= a2
+false
+#false
+b1 <= a3
+false
+#false
+b1 <= b1
+true
+#true
+b1 <= b2
+true
+#true
+b1 <= b3
+true
+#true
+b1 <= z1
+true
+#true
+b1 <= z2
+true
+#true
+b1 <= z3
+true
+#true
+b2 <= a1
+false
+#false
+b2 <= a2
+false
+#false
+b2 <= a3
+false
+#false
+b2 <= b1
+false
+#false
+b2 <= b2
+true
+#true
+b2 <= b3
+true
+#true
+b2 <= z1
+true
+#true
+b2 <= z2
+true
+#true
+b2 <= z3
+true
+#true
+b3 <= a1
+false
+#false
+b3 <= a2
+false
+#false
+b3 <= a3
+false
+#false
+b3 <= b1
+false
+#false
+b3 <= b2
+false
+#false
+b3 <= b3
+true
+#true
+b3 <= z1
+true
+#true
+b3 <= z2
+true
+#true
+b3 <= z3
+true
+#true
+z1 <= a1
+false
+#false
+z1 <= a2
+false
+#false
+z1 <= a3
+false
+#false
+z1 <= b1
+false
+#false
+z1 <= b2
+false
+#false
+z1 <= b3
+false
+#false
+z1 <= z1
+true
+#true
+z1 <= z2
+false
+#true
+z1 <= z3
+false
+#true
+z2 <= a1
+false
+#false
+z2 <= a2
+false
+#false
+z2 <= a3
+false
+#false
+z2 <= b1
+false
+#false
+z2 <= b2
+false
+#false
+z2 <= b3
+false
+#false
+z2 <= z1
+true
+#false
+z2 <= z2
+true
+#true
+z2 <= z3
+true
+#true
+z3 <= a1
+false
+#false
+z3 <= a2
+false
+#false
+z3 <= a3
+false
+#false
+z3 <= b1
+false
+#false
+z3 <= b2
+false
+#false
+z3 <= b3
+false
+#false
+z3 <= z1
+true
+#false
+z3 <= z2
+false
+#false
+z3 <= z3
+true
+#true
+##!
+##!
+##!----------------------------------------------
+##5.7 Operador >
+##!----------------------------------------------
+##!
+a1 > a1
+false
+#false
+a1 > a2
+false
+#false
+a1 > a3
+false
+#false
+a1 > b1
+false
+#false
+a1 > b2
+false
+#false
+a1 > b3
+false
+#false
+a1 > z1
+false
+#false
+a1 > z2
+false
+#false
+a1 > z3
+false
+#false
+a2 > a1
+true
+#true
+a2 > a2
+false
+#false
+a2 > a3
+false
+#false
+a2 > b1
+false
+#false
+a2 > b2
+false
+#false
+a2 > b3
+false
+#false
+a2 > z1
+false
+#false
+a2 > z2
+false
+#false
+a2 > z3
+false
+#false
+a3 > a1
+true
+#true
+a3 > a2
+true
+#true
+a3 > a3
+false
+#false
+a3 > b1
+false
+#false
+a3 > b2
+false
+#false
+a3 > b3
+false
+#false
+a3 > z1
+false
+#false
+a3 > z2
+false
+#false
+a3 > z3
+false
+#false
+b1 > a1
+true
+#true
+b1 > a2
+true
+#true
+b1 > a3
+true
+#true
+b1 > b1
+false
+#false
+b1 > b2
+false
+#false
+b1 > b3
+false
+#false
+b1 > z1
+false
+#false
+b1 > z2
+false
+#false
+b1 > z3
+false
+#false
+b2 > a1
+true
+#true
+b2 > a2
+true
+#true
+b2 > a3
+true
+#true
+b2 > b1
+true
+#true
+b2 > b2
+false
+#false
+b2 > b3
+false
+#false
+b2 > z1
+false
+#false
+b2 > z2
+false
+#false
+b2 > z3
+false
+#false
+b3 > a1
+true
+#true
+b3 > a2
+true
+#true
+b3 > a3
+true
+#true
+b3 > b1
+true
+#true
+b3 > b2
+true
+#true
+b3 > b3
+false
+#false
+b3 > z1
+false
+#false
+b3 > z2
+false
+#false
+b3 > z3
+false
+#false
+z1 > a1
+true
+#true
+z1 > a2
+true
+#true
+z1 > a3
+true
+#true
+z1 > b1
+true
+#true
+z1 > b2
+true
+#true
+z1 > b3
+true
+#true
+z1 > z1
+false
+#false
+z1 > z2
+true
+#false
+z1 > z3
+true
+#false
+z2 > a1
+true
+#true
+z2 > a2
+true
+#true
+z2 > a3
+true
+#true
+z2 > b1
+true
+#true
+z2 > b2
+true
+#true
+z2 > b3
+true
+#true
+z2 > z1
+false
+#true
+z2 > z2
+false
+#false
+z2 > z3
+false
+#false
+z3 > a1
+true
+#true
+z3 > a2
+true
+#true
+z3 > a3
+true
+#true
+z3 > b1
+true
+#true
+z3 > b2
+true
+#true
+z3 > b3
+true
+#true
+z3 > z1
+false
+#true
+z3 > z2
+true
+#true
+z3 > z3
+false
+#false
+##!
+##!
+##!----------------------------------------------
+##5.8 Operador >=
+##!----------------------------------------------
+##!
+a1 >= a1
+true
+#true
+a1 >= a2
+false
+#false
+a1 >= a3
+false
+#false
+a1 >= b1
+false
+#false
+a1 >= b2
+false
+#false
+a1 >= b3
+false
+#false
+a1 >= z1
+false
+#false
+a1 >= z2
+false
+#false
+a1 >= z3
+false
+#false
+a2 >= a1
+true
+#true
+a2 >= a2
+true
+#true
+a2 >= a3
+false
+#false
+a2 >= b1
+false
+#false
+a2 >= b2
+false
+#false
+a2 >= b3
+false
+#false
+a2 >= z1
+false
+#false
+a2 >= z2
+false
+#false
+a2 >= z3
+false
+#false
+a3 >= a1
+true
+#true
+a3 >= a2
+true
+#true
+a3 >= a3
+true
+#true
+a3 >= b1
+false
+#false
+a3 >= b2
+false
+#false
+a3 >= b3
+false
+#false
+a3 >= z1
+false
+#false
+a3 >= z2
+false
+#false
+a3 >= z3
+false
+#false
+b1 >= a1
+true
+#true
+b1 >= a2
+true
+#true
+b1 >= a3
+true
+#true
+b1 >= b1
+true
+#true
+b1 >= b2
+false
+#false
+b1 >= b3
+false
+#false
+b1 >= z1
+false
+#false
+b1 >= z2
+false
+#false
+b1 >= z3
+false
+#false
+b2 >= a1
+true
+#true
+b2 >= a2
+true
+#true
+b2 >= a3
+true
+#true
+b2 >= b1
+true
+#true
+b2 >= b2
+true
+#true
+b2 >= b3
+false
+#false
+b2 >= z1
+false
+#false
+b2 >= z2
+false
+#false
+b2 >= z3
+false
+#false
+b3 >= a1
+true
+#true
+b3 >= a2
+true
+#true
+b3 >= a3
+true
+#true
+b3 >= b1
+true
+#true
+b3 >= b2
+true
+#true
+b3 >= b3
+true
+#true
+b3 >= z1
+false
+#false
+b3 >= z2
+false
+#false
+b3 >= z3
+false
+#false
+z1 >= a1
+true
+#true
+z1 >= a2
+true
+#true
+z1 >= a3
+true
+#true
+z1 >= b1
+true
+#true
+z1 >= b2
+true
+#true
+z1 >= b3
+true
+#true
+z1 >= z1
+true
+#true
+z1 >= z2
+true
+#false
+z1 >= z3
+true
+#false
+z2 >= a1
+true
+#true
+z2 >= a2
+true
+#true
+z2 >= a3
+true
+#true
+z2 >= b1
+true
+#true
+z2 >= b2
+true
+#true
+z2 >= b3
+true
+#true
+z2 >= z1
+false
+#true
+z2 >= z2
+true
+#true
+z2 >= z3
+false
+#false
+z3 >= a1
+true
+#true
+z3 >= a2
+true
+#true
+z3 >= a3
+true
+#true
+z3 >= b1
+true
+#true
+z3 >= b2
+true
+#true
+z3 >= b3
+true
+#true
+z3 >= z1
+false
+#true
+z3 >= z2
+true
+#true
+z3 >= z3
+true
+#true
+##!
+##!
+##!
+##!----------------------------------------------
+##6 Destructora
+##!----------------------------------------------
+##!
+a1 destroy
+a2 destroy
+a3 destroy
+b1 destroy
+b2 destroy
+b3 destroy
+c1 destroy
+Error 4 [gen_driver]: Object not found
+c2 destroy
+Error 4 [gen_driver]: Object not found
+c3 destroy
+Error 4 [gen_driver]: Object not found
+x1 destroy
+x2 destroy
+x3 destroy
+z1 destroy
+z2 destroy
+z3 destroy
+##!
+##!
+##!
+##!
+##!-----------------------------------------------------------
+##! JOC DE PROVES DE UBICACIO
+##!-----------------------------------------------------------
+##!
+load jp_public_ubicacio.in
+##!----------------------------------------------
+##!
+##! JOC DE PROVES DE LA CLASSE UBICACIO
+##!
+##!----------------------------------------------
+##!
+##!
+##!------------------------------------------------------------------
+##1 Errors
+##!------------------------------------------------------------------
+##!
+##!------------------------------------------------------------------
+##1.1 Error 10: Ubicacio incorrecta
+##!------------------------------------------------------------------
+##!
+init u ubicacio -2 0 0
+#Error::ubicacio:10:Ubicacio incorrecta.
+init u ubicacio -2 -1 -1
+Error 10 [ubicacio]: Ubicacio incorrecta.
+#Error::ubicacio:10:Ubicacio incorrecta.
+init u ubicacio -1 -2 -1
+Error 10 [ubicacio]: Ubicacio incorrecta.
+#Error::ubicacio:10:Ubicacio incorrecta.
+init u ubicacio -1 -1 -2
+Error 10 [ubicacio]: Ubicacio incorrecta.
+#Error::ubicacio:10:Ubicacio incorrecta.
+init u ubicacio -1 10 10
+#Error::ubicacio:10:Ubicacio incorrecta.
+##!
+##!
+##!
+##!------------------------------------------------------------------
+##2 Mètodes consultors
+##!------------------------------------------------------------------
+##!
+init u000 ubicacio 0 0 0
+init u007 ubicacio 0 0 7
+init u064 ubicacio 0 6 4
+init u_100 ubicacio -1 0 0
+init u_1_1_1 ubicacio -1 -1 -1
+##!
+##!
+##!------------------------------------------------------------------
+##2.1 Filera
+##!------------------------------------------------------------------
+##!
+u000 filera
+0
+#0
+u007 filera
+0
+#0
+u064 filera
+0
+#0
+u_100 filera
+-1
+#-1
+u_1_1_1 filera
+-1
+#-1
+##!
+##!
+##!------------------------------------------------------------------
+##2.2 Placa
+##!------------------------------------------------------------------
+##!
+u000 placa
+0
+#0
+u007 placa
+0
+#0
+u064 placa
+6
+#6
+u_100 placa
+0
+#0
+u_1_1_1 placa
+-1
+#-1
+##!
+##!
+##!------------------------------------------------------------------
+##2.3 Pis
+##!------------------------------------------------------------------
+##!
+u000 pis
+0
+#0
+u007 pis
+7
+#7
+u064 pis
+4
+#4
+u_100 pis
+0
+#0
+u_1_1_1 pis
+-1
+#-1
+##!
+##!
+##!
+##!----------------------------------------------
+##3 Operadors de comparacio
+##!----------------------------------------------
+##!
+##!----------------------------------------------
+##3.1 Operador ==
+##!----------------------------------------------
+##!
+u000 == u000
+true
+#true
+u000 == u007
+false
+#false
+u000 == u064
+false
+#false
+u000 == u_100
+false
+#false
+u000 == u_1_1_1
+false
+#false
+u007 == u000
+false
+#false
+u007 == u007
+true
+#true
+u007 == u064
+false
+#false
+u007 == u_100
+false
+#false
+u007 == u_1_1_1
+false
+#false
+u064 == u000
+false
+#false
+u064 == u007
+false
+#false
+u064 == u064
+true
+#true
+u064 == u_100
+false
+#false
+u064 == u_1_1_1
+false
+#false
+u_100 == u000
+false
+#false
+u_100 == u007
+false
+#false
+u_100 == u064
+false
+#false
+u_100 == u_100
+true
+#true
+u_100 == u_1_1_1
+false
+#false
+u_1_1_1 == u000
+false
+#false
+u_1_1_1 == u007
+false
+#false
+u_1_1_1 == u064
+false
+#false
+u_1_1_1 == u_100
+false
+#false
+u_1_1_1 == u_1_1_1
+true
+#true
+##!
+##!
+##!----------------------------------------------
+##3.2 Operador !=
+##!----------------------------------------------
+##!
+u000 != u000
+false
+#false
+u000 != u007
+true
+#true
+u000 != u064
+true
+#true
+u000 != u_100
+true
+#true
+u000 != u_1_1_1
+true
+#true
+u007 != u000
+true
+#true
+u007 != u007
+false
+#false
+u007 != u064
+true
+#true
+u007 != u_100
+true
+#true
+u007 != u_1_1_1
+true
+#true
+u064 != u000
+true
+#true
+u064 != u007
+true
+#true
+u064 != u064
+false
+#false
+u064 != u_100
+true
+#true
+u064 != u_1_1_1
+true
+#true
+u_100 != u000
+true
+#true
+u_100 != u007
+true
+#true
+u_100 != u064
+true
+#true
+u_100 != u_100
+false
+#false
+u_100 != u_1_1_1
+true
+#true
+u_1_1_1 != u000
+true
+#true
+u_1_1_1 != u007
+true
+#true
+u_1_1_1 != u064
+true
+#true
+u_1_1_1 != u_100
+true
+#true
+u_1_1_1 != u_1_1_1
+false
+#false
+##!
+##!
+##!----------------------------------------------
+##3.3 Operador <
+##!----------------------------------------------
+##!
+u000 < u000
+false
+#false
+u000 < u007
+true
+#true
+u000 < u064
+true
+#true
+u000 < u_100
+false
+#false
+u000 < u_1_1_1
+false
+#false
+u007 < u000
+false
+#false
+u007 < u007
+false
+#false
+u007 < u064
+true
+#true
+u007 < u_100
+false
+#false
+u007 < u_1_1_1
+false
+#false
+u064 < u000
+false
+#false
+u064 < u007
+false
+#false
+u064 < u064
+false
+#false
+u064 < u_100
+false
+#false
+u064 < u_1_1_1
+false
+#false
+u_100 < u000
+true
+#true
+u_100 < u007
+true
+#true
+u_100 < u064
+true
+#true
+u_100 < u_100
+false
+#false
+u_100 < u_1_1_1
+false
+#false
+u_1_1_1 < u000
+true
+#true
+u_1_1_1 < u007
+true
+#true
+u_1_1_1 < u064
+true
+#true
+u_1_1_1 < u_100
+true
+#true
+u_1_1_1 < u_1_1_1
+false
+#false
+##!
+##!
+##!----------------------------------------------
+##3.4 Operador <=
+##!----------------------------------------------
+##!
+u000 <= u000
+true
+#true
+u000 <= u007
+true
+#true
+u000 <= u064
+true
+#true
+u000 <= u_100
+false
+#false
+u000 <= u_1_1_1
+false
+#false
+u007 <= u000
+false
+#false
+u007 <= u007
+true
+#true
+u007 <= u064
+true
+#true
+u007 <= u_100
+false
+#false
+u007 <= u_1_1_1
+false
+#false
+u064 <= u000
+false
+#false
+u064 <= u007
+false
+#false
+u064 <= u064
+true
+#true
+u064 <= u_100
+false
+#false
+u064 <= u_1_1_1
+false
+#false
+u_100 <= u000
+true
+#true
+u_100 <= u007
+true
+#true
+u_100 <= u064
+true
+#true
+u_100 <= u_100
+true
+#true
+u_100 <= u_1_1_1
+false
+#false
+u_1_1_1 <= u000
+true
+#true
+u_1_1_1 <= u007
+true
+#true
+u_1_1_1 <= u064
+true
+#true
+u_1_1_1 <= u_100
+true
+#true
+u_1_1_1 <= u_1_1_1
+true
+#true
+##!
+##!
+##!----------------------------------------------
+##3.5 Operador >
+##!----------------------------------------------
+##!
+u000 > u000
+false
+#false
+u000 > u007
+false
+#false
+u000 > u064
+false
+#false
+u000 > u_100
+true
+#true
+u000 > u_1_1_1
+true
+#true
+u007 > u000
+true
+#true
+u007 > u007
+false
+#false
+u007 > u064
+false
+#false
+u007 > u_100
+true
+#true
+u007 > u_1_1_1
+true
+#true
+u064 > u000
+true
+#true
+u064 > u007
+true
+#true
+u064 > u064
+false
+#false
+u064 > u_100
+true
+#true
+u064 > u_1_1_1
+true
+#true
+u_100 > u000
+false
+#false
+u_100 > u007
+false
+#false
+u_100 > u064
+false
+#false
+u_100 > u_100
+false
+#false
+u_100 > u_1_1_1
+true
+#true
+u_1_1_1 > u000
+false
+#false
+u_1_1_1 > u007
+false
+#false
+u_1_1_1 > u064
+false
+#false
+u_1_1_1 > u_100
+false
+#false
+u_1_1_1 > u_1_1_1
+false
+#false
+##!
+##!
+##!----------------------------------------------
+##3.6 Operador >=
+##!----------------------------------------------
+##!
+u000 >= u000
+true
+#true
+u000 >= u007
+false
+#false
+u000 >= u064
+false
+#false
+u000 >= u_100
+true
+#true
+u000 >= u_1_1_1
+true
+#true
+u007 >= u000
+true
+#true
+u007 >= u007
+true
+#true
+u007 >= u064
+false
+#false
+u007 >= u_100
+true
+#true
+u007 >= u_1_1_1
+true
+#true
+u064 >= u000
+true
+#true
+u064 >= u007
+true
+#true
+u064 >= u064
+true
+#true
+u064 >= u_100
+true
+#true
+u064 >= u_1_1_1
+true
+#true
+u_100 >= u000
+false
+#false
+u_100 >= u007
+false
+#false
+u_100 >= u064
+false
+#false
+u_100 >= u_100
+true
+#true
+u_100 >= u_1_1_1
+true
+#true
+u_1_1_1 >= u000
+false
+#false
+u_1_1_1 >= u007
+false
+#false
+u_1_1_1 >= u064
+false
+#false
+u_1_1_1 >= u_100
+false
+#false
+u_1_1_1 >= u_1_1_1
+true
+#true
+##!
+##!
+##!
+##!----------------------------------------------
+##4 Constructora per copia
+##!----------------------------------------------
+##!
+initcopy c000 = u000
+Error 4 [gen_driver]: Object not found
+initcopy c007 = u007
+Error 4 [gen_driver]: Object not found
+initcopy c064 = u064
+Error 4 [gen_driver]: Object not found
+initcopy c_100 = u_100
+Error 4 [gen_driver]: Object not found
+initcopy c_1_1_1 = u_1_1_1
+Error 4 [gen_driver]: Object not found
+##!
+##!
+##!------------------------------------------------------------------
+##4.1 Filera
+##!------------------------------------------------------------------
+##!
+c000 filera
+Error 5 [gen_driver]: Wrong object type
+#0
+c007 filera
+Error 5 [gen_driver]: Wrong object type
+#0
+c064 filera
+Error 5 [gen_driver]: Wrong object type
+#0
+c_100 filera
+Error 5 [gen_driver]: Wrong object type
+#-1
+c_1_1_1 filera
+Error 5 [gen_driver]: Wrong object type
+#-1
+##!
+##!
+##!------------------------------------------------------------------
+##4.2 Placa
+##!------------------------------------------------------------------
+##!
+c000 placa
+Error 5 [gen_driver]: Wrong object type
+#0
+c007 placa
+Error 5 [gen_driver]: Wrong object type
+#0
+c064 placa
+Error 5 [gen_driver]: Wrong object type
+#6
+c_100 placa
+Error 5 [gen_driver]: Wrong object type
+#0
+c_1_1_1 placa
+Error 5 [gen_driver]: Wrong object type
+#-1
+##!
+##!
+##!------------------------------------------------------------------
+##4.3 Pis
+##!------------------------------------------------------------------
+##!
+c000 pis
+Error 5 [gen_driver]: Wrong object type
+#0
+c007 pis
+Error 5 [gen_driver]: Wrong object type
+#7
+c064 pis
+Error 5 [gen_driver]: Wrong object type
+#4
+c_100 pis
+Error 5 [gen_driver]: Wrong object type
+#0
+c_1_1_1 pis
+Error 5 [gen_driver]: Wrong object type
+#-1
+##!
+##!
+##!----------------------------------------------
+##4.4 Operador ==
+##!----------------------------------------------
+##!
+c000 == c000
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c000 == c007
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c000 == c064
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c000 == c_100
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c000 == c_1_1_1
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c007 == c000
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c007 == c007
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c007 == c064
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c007 == c_100
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c007 == c_1_1_1
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c064 == c000
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c064 == c007
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c064 == c064
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c064 == c_100
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c064 == c_1_1_1
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c_100 == c000
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c_100 == c007
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c_100 == c064
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c_100 == c_100
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c_100 == c_1_1_1
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c_1_1_1 == c000
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c_1_1_1 == c007
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c_1_1_1 == c064
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c_1_1_1 == c_100
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c_1_1_1 == c_1_1_1
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+##!
+##!
+##!----------------------------------------------
+##4.5 Operador !=
+##!----------------------------------------------
+##!
+c000 != c000
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c000 != c007
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c000 != c064
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c000 != c_100
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c000 != c_1_1_1
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c007 != c000
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c007 != c007
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c007 != c064
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c007 != c_100
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c007 != c_1_1_1
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c064 != c000
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c064 != c007
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c064 != c064
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c064 != c_100
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c064 != c_1_1_1
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c_100 != c000
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c_100 != c007
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c_100 != c064
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c_100 != c_100
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c_100 != c_1_1_1
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c_1_1_1 != c000
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c_1_1_1 != c007
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c_1_1_1 != c064
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c_1_1_1 != c_100
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c_1_1_1 != c_1_1_1
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+##!
+##!
+##!----------------------------------------------
+##4.6 Operador <
+##!----------------------------------------------
+##!
+c000 < c000
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c000 < c007
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c000 < c064
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c000 < c_100
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c000 < c_1_1_1
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c007 < c000
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c007 < c007
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c007 < c064
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c007 < c_100
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c007 < c_1_1_1
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c064 < c000
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c064 < c007
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c064 < c064
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c064 < c_100
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c064 < c_1_1_1
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c_100 < c000
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c_100 < c007
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c_100 < c064
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c_100 < c_100
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c_100 < c_1_1_1
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c_1_1_1 < c000
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c_1_1_1 < c007
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c_1_1_1 < c064
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c_1_1_1 < c_100
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c_1_1_1 < c_1_1_1
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+##!
+##!
+##!----------------------------------------------
+##4.7 Operador <=
+##!----------------------------------------------
+##!
+c000 <= c000
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c000 <= c007
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c000 <= c064
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c000 <= c_100
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c000 <= c_1_1_1
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c007 <= c000
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c007 <= c007
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c007 <= c064
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c007 <= c_100
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c007 <= c_1_1_1
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c064 <= c000
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c064 <= c007
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c064 <= c064
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c064 <= c_100
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c064 <= c_1_1_1
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c_100 <= c000
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c_100 <= c007
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c_100 <= c064
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c_100 <= c_100
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c_100 <= c_1_1_1
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c_1_1_1 <= c000
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c_1_1_1 <= c007
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c_1_1_1 <= c064
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c_1_1_1 <= c_100
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c_1_1_1 <= c_1_1_1
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+##!
+##!
+##!----------------------------------------------
+##4.8 Operador >
+##!----------------------------------------------
+##!
+c000 > c000
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c000 > c007
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c000 > c064
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c000 > c_100
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c000 > c_1_1_1
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c007 > c000
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c007 > c007
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c007 > c064
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c007 > c_100
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c007 > c_1_1_1
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c064 > c000
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c064 > c007
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c064 > c064
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c064 > c_100
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c064 > c_1_1_1
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c_100 > c000
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c_100 > c007
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c_100 > c064
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c_100 > c_100
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c_100 > c_1_1_1
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c_1_1_1 > c000
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c_1_1_1 > c007
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c_1_1_1 > c064
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c_1_1_1 > c_100
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c_1_1_1 > c_1_1_1
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+##!
+##!
+##!----------------------------------------------
+##4.9 Operador >=
+##!----------------------------------------------
+##!
+c000 >= c000
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c000 >= c007
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c000 >= c064
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c000 >= c_100
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c000 >= c_1_1_1
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c007 >= c000
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c007 >= c007
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c007 >= c064
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c007 >= c_100
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c007 >= c_1_1_1
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c064 >= c000
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c064 >= c007
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c064 >= c064
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c064 >= c_100
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c064 >= c_1_1_1
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c_100 >= c000
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c_100 >= c007
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c_100 >= c064
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c_100 >= c_100
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c_100 >= c_1_1_1
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+c_1_1_1 >= c000
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c_1_1_1 >= c007
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c_1_1_1 >= c064
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c_1_1_1 >= c_100
+Error 3 [gen_driver]: Wrong type of arguments
+#false
+c_1_1_1 >= c_1_1_1
+Error 3 [gen_driver]: Wrong type of arguments
+#true
+##!
+##!
+##!
+##!----------------------------------------------
+##5 Operador d'assignacio
+##!----------------------------------------------
+##!
+init x000 ubicacio 1 2 3
+init x007 ubicacio 4 5 6
+init x064 ubicacio 6 7 8
+init x_100 ubicacio 9 10 11
+init x_1_1_1 ubicacio 12 13 14
+##!
+##!
+##!------------------------------------------------------------------
+##5.1 Filera
+##!------------------------------------------------------------------
+##!
+x000 filera
+1
+#1
+x007 filera
+4
+#4
+x064 filera
+6
+#6
+x_100 filera
+9
+#9
+x_1_1_1 filera
+12
+#12
+##!
+##!
+##!------------------------------------------------------------------
+##5.2 Placa
+##!------------------------------------------------------------------
+##!
+x000 placa
+2
+#2
+x007 placa
+5
+#5
+x064 placa
+7
+#7
+x_100 placa
+10
+#10
+x_1_1_1 placa
+13
+#13
+##!
+##!
+##!------------------------------------------------------------------
+##5.3 Pis
+##!------------------------------------------------------------------
+##!
+x000 pis
+3
+#3
+x007 pis
+6
+#6
+x064 pis
+8
+#8
+x_100 pis
+11
+#11
+x_1_1_1 pis
+14
+#14
+##!
+##!
+##!------------------------------------------------------------------
+##5.4 Assignacio
+##!------------------------------------------------------------------
+##!
+x000 = c000
+Error 1 [gen_driver]: Operation not found: =
+x007 = c007
+Error 1 [gen_driver]: Operation not found: =
+x064 = c064
+Error 1 [gen_driver]: Operation not found: =
+x_100 = c_100
+Error 1 [gen_driver]: Operation not found: =
+x_1_1_1 = c_1_1_1
+Error 1 [gen_driver]: Operation not found: =
+##!
+##!
+##!----------------------------------------------
+##5.5 Operador ==
+##!----------------------------------------------
+##!
+x000 == x000
+true
+#true
+x000 == x007
+false
+#false
+x000 == x064
+false
+#false
+x000 == x_100
+false
+#false
+x000 == x_1_1_1
+false
+#false
+x007 == x000
+false
+#false
+x007 == x007
+true
+#true
+x007 == x064
+false
+#false
+x007 == x_100
+false
+#false
+x007 == x_1_1_1
+false
+#false
+x064 == x000
+false
+#false
+x064 == x007
+false
+#false
+x064 == x064
+true
+#true
+x064 == x_100
+false
+#false
+x064 == x_1_1_1
+false
+#false
+x_100 == x000
+false
+#false
+x_100 == x007
+false
+#false
+x_100 == x064
+false
+#false
+x_100 == x_100
+true
+#true
+x_100 == x_1_1_1
+false
+#false
+x_1_1_1 == x000
+false
+#false
+x_1_1_1 == x007
+false
+#false
+x_1_1_1 == x064
+false
+#false
+x_1_1_1 == x_100
+false
+#false
+x_1_1_1 == x_1_1_1
+true
+#true
+##!
+##!
+##!----------------------------------------------
+##5.6 Operador !=
+##!----------------------------------------------
+##!
+x000 != x000
+false
+#false
+x000 != x007
+true
+#true
+x000 != x064
+true
+#true
+x000 != x_100
+true
+#true
+x000 != x_1_1_1
+true
+#true
+x007 != x000
+true
+#true
+x007 != x007
+false
+#false
+x007 != x064
+true
+#true
+x007 != x_100
+true
+#true
+x007 != x_1_1_1
+true
+#true
+x064 != x000
+true
+#true
+x064 != x007
+true
+#true
+x064 != x064
+false
+#false
+x064 != x_100
+true
+#true
+x064 != x_1_1_1
+true
+#true
+x_100 != x000
+true
+#true
+x_100 != x007
+true
+#true
+x_100 != x064
+true
+#true
+x_100 != x_100
+false
+#false
+x_100 != x_1_1_1
+true
+#true
+x_1_1_1 != x000
+true
+#true
+x_1_1_1 != x007
+true
+#true
+x_1_1_1 != x064
+true
+#true
+x_1_1_1 != x_100
+true
+#true
+x_1_1_1 != x_1_1_1
+false
+#false
+##!
+##!
+##!----------------------------------------------
+##5.7 Operador <
+##!----------------------------------------------
+##!
+x000 < x000
+false
+#false
+x000 < x007
+true
+#true
+x000 < x064
+true
+#true
+x000 < x_100
+true
+#false
+x000 < x_1_1_1
+true
+#false
+x007 < x000
+false
+#false
+x007 < x007
+false
+#false
+x007 < x064
+true
+#true
+x007 < x_100
+true
+#false
+x007 < x_1_1_1
+true
+#false
+x064 < x000
+false
+#false
+x064 < x007
+false
+#false
+x064 < x064
+false
+#false
+x064 < x_100
+true
+#false
+x064 < x_1_1_1
+true
+#false
+x_100 < x000
+false
+#true
+x_100 < x007
+false
+#true
+x_100 < x064
+false
+#true
+x_100 < x_100
+false
+#false
+x_100 < x_1_1_1
+true
+#false
+x_1_1_1 < x000
+false
+#true
+x_1_1_1 < x007
+false
+#true
+x_1_1_1 < x064
+false
+#true
+x_1_1_1 < x_100
+false
+#true
+x_1_1_1 < x_1_1_1
+false
+#false
+##!
+##!
+##!----------------------------------------------
+##5.8 Operador <=
+##!----------------------------------------------
+##!
+x000 <= x000
+true
+#true
+x000 <= x007
+true
+#true
+x000 <= x064
+true
+#true
+x000 <= x_100
+true
+#false
+x000 <= x_1_1_1
+true
+#false
+x007 <= x000
+false
+#false
+x007 <= x007
+true
+#true
+x007 <= x064
+true
+#true
+x007 <= x_100
+true
+#false
+x007 <= x_1_1_1
+true
+#false
+x064 <= x000
+false
+#false
+x064 <= x007
+false
+#false
+x064 <= x064
+true
+#true
+x064 <= x_100
+true
+#false
+x064 <= x_1_1_1
+true
+#false
+x_100 <= x000
+false
+#true
+x_100 <= x007
+false
+#true
+x_100 <= x064
+false
+#true
+x_100 <= x_100
+true
+#true
+x_100 <= x_1_1_1
+true
+#false
+x_1_1_1 <= x000
+false
+#true
+x_1_1_1 <= x007
+false
+#true
+x_1_1_1 <= x064
+false
+#true
+x_1_1_1 <= x_100
+false
+#true
+x_1_1_1 <= x_1_1_1
+true
+#true
+##!
+##!
+##!----------------------------------------------
+##5.9 Operador >
+##!----------------------------------------------
+##!
+x000 > x000
+false
+#false
+x000 > x007
+false
+#false
+x000 > x064
+false
+#false
+x000 > x_100
+false
+#true
+x000 > x_1_1_1
+false
+#true
+x007 > x000
+true
+#true
+x007 > x007
+false
+#false
+x007 > x064
+false
+#false
+x007 > x_100
+false
+#true
+x007 > x_1_1_1
+false
+#true
+x064 > x000
+true
+#true
+x064 > x007
+true
+#true
+x064 > x064
+false
+#false
+x064 > x_100
+false
+#true
+x064 > x_1_1_1
+false
+#true
+x_100 > x000
+true
+#false
+x_100 > x007
+true
+#false
+x_100 > x064
+true
+#false
+x_100 > x_100
+false
+#false
+x_100 > x_1_1_1
+false
+#true
+x_1_1_1 > x000
+true
+#false
+x_1_1_1 > x007
+true
+#false
+x_1_1_1 > x064
+true
+#false
+x_1_1_1 > x_100
+true
+#false
+x_1_1_1 > x_1_1_1
+false
+#false
+##!
+##!
+##!----------------------------------------------
+##5.10 Operador >=
+##!----------------------------------------------
+##!
+x000 >= x000
+true
+#true
+x000 >= x007
+false
+#false
+x000 >= x064
+false
+#false
+x000 >= x_100
+false
+#true
+x000 >= x_1_1_1
+false
+#true
+x007 >= x000
+true
+#true
+x007 >= x007
+true
+#true
+x007 >= x064
+false
+#false
+x007 >= x_100
+false
+#true
+x007 >= x_1_1_1
+false
+#true
+x064 >= x000
+true
+#true
+x064 >= x007
+true
+#true
+x064 >= x064
+true
+#true
+x064 >= x_100
+false
+#true
+x064 >= x_1_1_1
+false
+#true
+x_100 >= x000
+true
+#false
+x_100 >= x007
+true
+#false
+x_100 >= x064
+true
+#false
+x_100 >= x_100
+true
+#true
+x_100 >= x_1_1_1
+false
+#true
+x_1_1_1 >= x000
+true
+#false
+x_1_1_1 >= x007
+true
+#false
+x_1_1_1 >= x064
+true
+#false
+x_1_1_1 >= x_100
+true
+#false
+x_1_1_1 >= x_1_1_1
+true
+#true
+##!
+##!
+##!
+##!----------------------------------------------
+##6 Destructora
+##!----------------------------------------------
+##!
+u000 destroy
+u007 destroy
+u064 destroy
+u_100 destroy
+u_1_1_1 destroy
+c000 destroy
+Error 4 [gen_driver]: Object not found
+c007 destroy
+Error 4 [gen_driver]: Object not found
+c064 destroy
+Error 4 [gen_driver]: Object not found
+c_100 destroy
+Error 4 [gen_driver]: Object not found
+c_1_1_1 destroy
+Error 4 [gen_driver]: Object not found
+x000 destroy
+x007 destroy
+x064 destroy
+x_100 destroy
+x_1_1_1 destroy
+##!
+##!
+##!
+##!-----------------------------------------------------------
+##! JOC DE PROVES DE CATALEG
+##!-----------------------------------------------------------
+##!
+load jp_public_cataleg.in
+##!----------------------------------------------
+##!
+##! JOCS DE PROVES DE LA CLASSE CATALEG
+##!
+##!----------------------------------------------
+##!
+##!------------------------------------------------------------------
+##1 Cataleg buit
+##!------------------------------------------------------------------
+##!
+init a1 cataleg<int> 0
+##!
+val KuCha12
+Error 1 [gen_driver]: Operation not found: KuCha12
+#Error::cataleg:31:Clau inexistent.
+##!
+existeix KuCha12
+Error 1 [gen_driver]: Operation not found: KuCha12
+#false
+quants
+Error 5 [gen_driver]: Wrong object type
+#0
+##!
+elimina KuCha12
+Error 1 [gen_driver]: Operation not found: KuCha12
+#Error::cataleg:31:Clau inexistent.
+existeix KuCha12
+Error 1 [gen_driver]: Operation not found: KuCha12
+#false
+quants
+Error 5 [gen_driver]: Wrong object type
+#0
+##!
+a1 destroy
+##!
+##!
+##!
+##!------------------------------------------------------------------
+##2 Una clau
+##!------------------------------------------------------------------
+##!
+##!------------------------------
+##2.1 Clau NO present al cataleg
+##!------------------------------
+##!
+init a2 cataleg<int> 1
+##!
+assig KuCha12 12
+Error 1 [gen_driver]: Operation not found: KuCha12
+##!
+val KuCha12
+Error 1 [gen_driver]: Operation not found: KuCha12
+#12
+val KuCha13
+Error 1 [gen_driver]: Operation not found: KuCha13
+#Error::cataleg:31:Clau inexistent.
+##!
+existeix KuCha12
+Error 1 [gen_driver]: Operation not found: KuCha12
+#true
+existeix KuCha13
+Error 1 [gen_driver]: Operation not found: KuCha13
+#false
+quants
+Error 5 [gen_driver]: Wrong object type
+#1
+##!
+##!
+##!------------------------------
+##2.2 Clau present al cataleg
+##!------------------------------
+##!
+assig KuCha12 12
+Error 1 [gen_driver]: Operation not found: KuCha12
+##!
+val KuCha12
+Error 1 [gen_driver]: Operation not found: KuCha12
+#12
+val KuCha13
+Error 1 [gen_driver]: Operation not found: KuCha13
+#Error::cataleg:31:Clau inexistent.
+##!
+existeix KuCha12
+Error 1 [gen_driver]: Operation not found: KuCha12
+#true
+existeix KuCha13
+Error 1 [gen_driver]: Operation not found: KuCha13
+#false
+quants
+Error 5 [gen_driver]: Wrong object type
+#1
+##!
+elimina KuCha12
+Error 1 [gen_driver]: Operation not found: KuCha12
+existeix KuCha12
+Error 1 [gen_driver]: Operation not found: KuCha12
+#false
+quants
+Error 5 [gen_driver]: Wrong object type
+#0
+##!
+a2 destroy
+##!
+##!
+##!
+##!------------------------------------------------------------------
+##3 Dues claus
+##!------------------------------------------------------------------
+##!
+##!------------------------------
+##3.1 Clau assignada al principi
+##!------------------------------
+##!
+init a31 cataleg<int> 2
+##!
+assig KuCha1 1
+Error 1 [gen_driver]: Operation not found: KuCha1
+assig HuCha2 2
+Error 1 [gen_driver]: Operation not found: HuCha2
+##!
+val KuCha1
+Error 1 [gen_driver]: Operation not found: KuCha1
+#1
+val HuCha2
+Error 1 [gen_driver]: Operation not found: HuCha2
+#2
+val HuCha13
+Error 1 [gen_driver]: Operation not found: HuCha13
+#Error::cataleg:31:Clau inexistent.
+##!
+existeix KuCha1
+Error 1 [gen_driver]: Operation not found: KuCha1
+#true
+existeix HuCha2
+Error 1 [gen_driver]: Operation not found: HuCha2
+#true
+existeix HuCha13
+Error 1 [gen_driver]: Operation not found: HuCha13
+#false
+quants
+Error 5 [gen_driver]: Wrong object type
+#2
+##!
+elimina KuCha1
+Error 1 [gen_driver]: Operation not found: KuCha1
+elimina HuCha2
+Error 1 [gen_driver]: Operation not found: HuCha2
+existeix KuCha1
+Error 1 [gen_driver]: Operation not found: KuCha1
+#false
+existeix HuCha2
+Error 1 [gen_driver]: Operation not found: HuCha2
+#false
+existeix HuCha13
+Error 1 [gen_driver]: Operation not found: HuCha13
+#false
+quants
+Error 5 [gen_driver]: Wrong object type
+#0
+##!
+a31 destroy
+##!
+##!
+##!------------------------------
+##3.2 Clau assignada al final
+##!------------------------------
+##!
+init a32 cataleg<int> 2
+##!
+assig HuCha1 1
+Error 1 [gen_driver]: Operation not found: HuCha1
+assig KuCha2 2
+Error 1 [gen_driver]: Operation not found: KuCha2
+##!
+val KuCha2
+Error 1 [gen_driver]: Operation not found: KuCha2
+#2
+val HuCha1
+Error 1 [gen_driver]: Operation not found: HuCha1
+#1
+val HuCha13
+Error 1 [gen_driver]: Operation not found: HuCha13
+#Error::cataleg:31:Clau inexistent.
+##!
+existeix HuCha1
+Error 1 [gen_driver]: Operation not found: HuCha1
+#true
+existeix KuCha2
+Error 1 [gen_driver]: Operation not found: KuCha2
+#true
+existeix HuCha13
+Error 1 [gen_driver]: Operation not found: HuCha13
+#false
+##!
+quants
+Error 5 [gen_driver]: Wrong object type
+#2
+##!
+a32 destroy
+##!
+##!
+##!
+##!------------------------------------------------------------------
+##4 Tres claus
+##!------------------------------------------------------------------
+##!
+##!------------------------------
+##4.1 Clau assignada al principi
+##!------------------------------
+##!
+init a41 cataleg<int> 3
+##!
+assig HuCha1 1
+Error 1 [gen_driver]: Operation not found: HuCha1
+assig KuCha2 2
+Error 1 [gen_driver]: Operation not found: KuCha2
+assig AuCha3 3
+Error 1 [gen_driver]: Operation not found: AuCha3
+##!
+val KuCha2
+Error 1 [gen_driver]: Operation not found: KuCha2
+#2
+val HuCha1
+Error 1 [gen_driver]: Operation not found: HuCha1
+#1
+val AuCha3
+Error 1 [gen_driver]: Operation not found: AuCha3
+#3
+val HuCha13
+Error 1 [gen_driver]: Operation not found: HuCha13
+#Error::cataleg:31:Clau inexistent.
+##!
+existeix KuCha2
+Error 1 [gen_driver]: Operation not found: KuCha2
+#true
+existeix HuCha1
+Error 1 [gen_driver]: Operation not found: HuCha1
+#true
+existeix AuCha3
+Error 1 [gen_driver]: Operation not found: AuCha3
+#true
+existeix HuCha13
+Error 1 [gen_driver]: Operation not found: HuCha13
+#false
+quants
+Error 5 [gen_driver]: Wrong object type
+#3
+##!
+elimina KuCha2
+Error 1 [gen_driver]: Operation not found: KuCha2
+elimina HuCha1
+Error 1 [gen_driver]: Operation not found: HuCha1
+elimina AuCha3
+Error 1 [gen_driver]: Operation not found: AuCha3
+existeix KuCha2
+Error 1 [gen_driver]: Operation not found: KuCha2
+#false
+existeix HuCha1
+Error 1 [gen_driver]: Operation not found: HuCha1
+#false
+existeix AuCha3
+Error 1 [gen_driver]: Operation not found: AuCha3
+#false
+existeix HuCha13
+Error 1 [gen_driver]: Operation not found: HuCha13
+#false
+quants
+Error 5 [gen_driver]: Wrong object type
+#0
+##!
+a41 destroy
+##!
+##!
+##!------------------------------
+##4.2 Clau assignada al mig
+##!------------------------------
+##!
+init a42 cataleg<int> 3
+##!
+assig KuCha2 2
+Error 1 [gen_driver]: Operation not found: KuCha2
+assig HuCha1 1
+Error 1 [gen_driver]: Operation not found: HuCha1
+assig IuCha3 3
+Error 1 [gen_driver]: Operation not found: IuCha3
+##!
+val KuCha2
+Error 1 [gen_driver]: Operation not found: KuCha2
+#2
+val HuCha1
+Error 1 [gen_driver]: Operation not found: HuCha1
+#1
+val IuCha3
+Error 1 [gen_driver]: Operation not found: IuCha3
+#3
+val HuCha13
+Error 1 [gen_driver]: Operation not found: HuCha13
+#Error::cataleg:31:Clau inexistent.
+##!
+existeix KuCha2
+Error 1 [gen_driver]: Operation not found: KuCha2
+#true
+existeix HuCha1
+Error 1 [gen_driver]: Operation not found: HuCha1
+#true
+existeix IuCha3
+Error 1 [gen_driver]: Operation not found: IuCha3
+#true
+existeix HuCha13
+Error 1 [gen_driver]: Operation not found: HuCha13
+#false
+##!
+quants
+Error 5 [gen_driver]: Wrong object type
+#3
+##!
+a42 destroy
+##!
+##!
+##!------------------------------
+##4.3 Clau assignada al final
+##!------------------------------
+##!
+init a43 cataleg<int> 3
+##!
+assig HuCha1 1
+Error 1 [gen_driver]: Operation not found: HuCha1
+assig KuCha2 2
+Error 1 [gen_driver]: Operation not found: KuCha2
+assig ZuCha3 3
+Error 1 [gen_driver]: Operation not found: ZuCha3
+##!
+val KuCha2
+Error 1 [gen_driver]: Operation not found: KuCha2
+#2
+val ZuCha3
+Error 1 [gen_driver]: Operation not found: ZuCha3
+#3
+val HuCha1
+Error 1 [gen_driver]: Operation not found: HuCha1
+#1
+val HuCha13
+Error 1 [gen_driver]: Operation not found: HuCha13
+#Error::cataleg:31:Clau inexistent.
+##!
+existeix KuCha2
+Error 1 [gen_driver]: Operation not found: KuCha2
+#true
+existeix ZuCha3
+Error 1 [gen_driver]: Operation not found: ZuCha3
+#true
+existeix HuCha1
+Error 1 [gen_driver]: Operation not found: HuCha1
+#true
+existeix HuCha13
+Error 1 [gen_driver]: Operation not found: HuCha13
+#false
+##!
+quants
+Error 5 [gen_driver]: Wrong object type
+#3
+##!
+a43 destroy
+##!
+##!
+##!
+##!
+##!
+##!
+##!-----------------------------------------------------------
+##! JOC DE PROVES DE TERMINAL
+##!-----------------------------------------------------------
+##!
+load jp_public_terminal.in
+set_memory 100000 1000000000
+##!----------------------------------------------
+##!
+##! JOCS DE PROVES DE LA CLASSE TERMINAL FIRST_FIT
+##!
+##!----------------------------------------------
+##!
+##! NOTA al respecte de l'instrucció mapa:
+##!   * Aquesta instrucció prova explícitament i
+##!     implícitament aquestes operacions:
+##!       - area_espera
+##!       - fragmentacio
+##!       - ops_grua
+##!       - num_fileres
+##!       - num_pisos
+##!       - num_places
+##!       - contenidor_ocupa
+##!     Per això aquestes operacions no cal que es
+##!     provin aïlladament de manera intensiva.
+##!   * En el mapa es mostren només els 3 primers
+##!     caràcters de cada matrícula.
+##!
+##!----------------------------------------------
+##!
+##!
+##!------------------------------------------------------------------
+##0 Creació de contenidors i ubicacions 
+##!------------------------------------------------------------------
+##!
+init cRE1 contenidor A10 10
+init cRE2 contenidor A10 20
+init cRE3 contenidor A10 30
+init cA10 contenidor A10 10
+init cA20 contenidor A20 20
+init cA30 contenidor A30 30
+init cB10 contenidor B10 10
+init cB20 contenidor B20 20
+init cB30 contenidor B30 30
+init cC10 contenidor C10 10
+init cC20 contenidor C20 20
+init cC30 contenidor C30 30
+init cD10 contenidor D10 10
+init cD20 contenidor D20 20
+init cD30 contenidor D30 30
+init cE10 contenidor E10 10
+init cE20 contenidor E20 20
+init cE30 contenidor E30 30
+init cF10 contenidor F10 10
+init cF20 contenidor F20 20
+init cF30 contenidor F30 30
+init cG10 contenidor G10 10
+init cG20 contenidor G20 20
+init cG30 contenidor G30 30
+init cH10 contenidor H10 10
+init cH20 contenidor H20 20
+init cH30 contenidor H30 30
+init cI10 contenidor I10 10
+init cI20 contenidor I20 20
+init cI30 contenidor I30 30
+init cJ10 contenidor J10 10
+init cJ20 contenidor J20 20
+init cJ30 contenidor J30 30
+init cK10 contenidor K10 10
+init cK20 contenidor K20 20
+init cK30 contenidor K30 30
+init cL10 contenidor L10 10
+init cL20 contenidor L20 20
+init cL30 contenidor L30 30
+init cM10 contenidor M10 10
+init cM20 contenidor M20 20
+init cM30 contenidor M30 30
+init cN10 contenidor N10 10
+init cN20 contenidor N20 20
+init cN30 contenidor N30 30
+init cO10 contenidor O10 10
+init cO20 contenidor O20 20
+init cO30 contenidor O30 30
+init cP10 contenidor P10 10
+init cP20 contenidor P20 20
+init cP30 contenidor P30 30
+init cQ10 contenidor Q10 10
+init cQ20 contenidor Q20 20
+init cQ30 contenidor Q30 30
+init cR10 contenidor R10 10
+init cR20 contenidor R20 20
+init cR30 contenidor R30 30
+init cS10 contenidor S10 10
+init cS20 contenidor S20 20
+init cS30 contenidor S30 30
+init cT10 contenidor T10 10
+init cT20 contenidor T20 20
+init cT30 contenidor T30 30
+init cU10 contenidor U10 10
+init cU20 contenidor U20 20
+init cU30 contenidor U30 30
+init cV10 contenidor V10 10
+init cV20 contenidor V20 20
+init cV30 contenidor V30 30
+init cW10 contenidor W10 10
+init cW20 contenidor W20 20
+init cW30 contenidor W30 30
+init cX10 contenidor X10 10
+init cX20 contenidor X20 20
+init cX30 contenidor X30 30
+init cY10 contenidor Y10 10
+init cY20 contenidor Y20 20
+init cY30 contenidor Y30 30
+init cZ10 contenidor Z10 10
+init cZ20 contenidor Z20 20
+init cZ30 contenidor Z30 30
+##!
+init u_1_1_1 ubicacio -1 -1 -1
+init u_100 ubicacio -1 0 0
+init u000 ubicacio 0 0 0
+init u001 ubicacio 0 0 1
+init u002 ubicacio 0 0 2
+init u003 ubicacio 0 0 3
+init u010 ubicacio 0 1 0
+init u011 ubicacio 0 1 1
+init u012 ubicacio 0 1 2
+init u020 ubicacio 0 2 0
+init u030 ubicacio 0 3 0
+init u040 ubicacio 0 4 0
+init u050 ubicacio 0 5 0
+init u060 ubicacio 0 6 0
+init u070 ubicacio 0 7 0
+init u080 ubicacio 0 8 0
+init u090 ubicacio 0 9 0
+init u0100 ubicacio 0 10 0
+init u292 ubicacio 2 9 2
+init u0122 ubicacio 0 12 2
+init u093 ubicacio 0 9 3
+##!
+##!
+##!
+##!------------------------------------------------------------------
+##1 Errors constructora
+##!------------------------------------------------------------------
+##!
+##!------------------------------------------------------------------
+##1.1 Error 40: Numero de fileres incorrecte
+##!------------------------------------------------------------------
+##!
+init t terminal 0 0 0
+Error 40 [terminal]: Numero de fileres incorrecte.
+#Error::terminal:40:Numero de fileres incorrecte.
+init t terminal 0 0 3
+Error 40 [terminal]: Numero de fileres incorrecte.
+#Error::terminal:40:Numero de fileres incorrecte.
+init t terminal 0 3 0
+Error 40 [terminal]: Numero de fileres incorrecte.
+#Error::terminal:40:Numero de fileres incorrecte.
+init t terminal 0 3 3
+Error 40 [terminal]: Numero de fileres incorrecte.
+#Error::terminal:40:Numero de fileres incorrecte.
+##!
+##!
+##!------------------------------------------------------------------
+##1.2 Error 41: Numero de places incorrecte
+##!------------------------------------------------------------------
+##!
+init t terminal 3 0 0
+Error 41 [terminal]: Numero de places incorrecte.
+#Error::terminal:41:Numero de places incorrecte.
+init t terminal 3 0 3
+Error 41 [terminal]: Numero de places incorrecte.
+#Error::terminal:41:Numero de places incorrecte.
+##!
+##!
+##!------------------------------------------------------------------
+##1.3 Error 42: Altura maxima incorrecta
+##!----------%--------------------------------------------------------
+##!
+init t terminal 3 3 0
+Error 42 [terminal]: Alcada maxima incorrecta.
+#Error::terminal:42:Alcada maxima incorrecta.
+init t terminal 3 3 11
+Error 42 [terminal]: Alcada maxima incorrecta.
+#Error::terminal:42:Alcada maxima incorrecta.
+##!
+##!
+##!
+##!------------------------------------------------------------------
+##2 Terminal 1x1x1
+##! * Prova mètodes insereix i retira
+##! * Prova mètodes consultors
+##! * Prova destructor
+##!------------------------------------------------------------------
+##!
+init t111 terminal 1 1 1
+##!
+##!
+##!------------------------------------------------------------------
+##2.1 Estat inicial
+##!------------------------------------------------------------------
+##!
+##!------------------------------------------------------------------
+##2.1.1 On
+##!------------------------------------------------------------------
+##!
+on A10
+Error 1 [gen_driver]: Operation not found: A10
+#<-1, -1, -1>
+on A30
+Error 1 [gen_driver]: Operation not found: A30
+#<-1, -1, -1>
+on B10
+Error 1 [gen_driver]: Operation not found: B10
+#<-1, -1, -1>
+on B20
+Error 1 [gen_driver]: Operation not found: B20
+#<-1, -1, -1>
+on D20
+Error 1 [gen_driver]: Operation not found: D20
+#<-1, -1, -1>
+##!
+##!
+##!------------------------------------------------------------------
+##2.1.2 Longitud
+##!------------------------------------------------------------------
+##!
+long_terminal A10
+Error 1 [gen_driver]: Operation not found: A10
+#Error::terminal:45:Matricula inexistent.
+long_terminal B20
+Error 1 [gen_driver]: Operation not found: B20
+#Error::terminal:45:Matricula inexistent.
+long_terminal A30
+Error 1 [gen_driver]: Operation not found: A30
+#Error::terminal:45:Matricula inexistent.
+long_terminal B10
+Error 1 [gen_driver]: Operation not found: B10
+#Error::terminal:45:Matricula inexistent.
+long_terminal D20
+Error 1 [gen_driver]: Operation not found: D20
+#Error::terminal:45:Matricula inexistent.
+##!
+##!
+##!------------------------------------------------------------------
+##2.1.3 Contenidor_ocupa
+##!------------------------------------------------------------------
+##!
+contenidor_ocupa u_1_1_1
+Error 1 [gen_driver]: Operation not found: u_1_1_1
+#Error::terminal:46:Ubicacio no pertany al magatzem.
+contenidor_ocupa u_100
+Error 1 [gen_driver]: Operation not found: u_100
+#Error::terminal:46:Ubicacio no pertany al magatzem.
+contenidor_ocupa u292
+Error 1 [gen_driver]: Operation not found: u292
+#Error::terminal:46:Ubicacio no pertany al magatzem.
+contenidor_ocupa u0122
+Error 1 [gen_driver]: Operation not found: u0122
+#Error::terminal:46:Ubicacio no pertany al magatzem.
+contenidor_ocupa u093
+Error 1 [gen_driver]: Operation not found: u093
+#Error::terminal:46:Ubicacio no pertany al magatzem.
+contenidor_ocupa u000
+Error 1 [gen_driver]: Operation not found: u000
+#
+##!
+##!------------------------------------------------------------------
+##2.1.4 Consultores numero
+##!------------------------------------------------------------------
+##!
+num_fileres

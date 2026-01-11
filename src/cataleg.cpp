@@ -1,11 +1,11 @@
 #include "../include/cataleg.hpp"
 
 // Constructor
-// Pre: numelems > 0
-// Post: Crea un nou catàleg buit i de _M = numelems.
+// Pre: numelems >= 0
+// Post: Crea un nou catàleg buit. Si numelems és 0, utilitza mida per defecte.
 template <typename Valor>
 cataleg<Valor>::cataleg(nat numelems)
-    : _M{numelems}, _quants{0}
+    : _M{numelems == 0 ? 7u : numelems}, _quants{0}
 {
     _taula = new node_hash*[_M];
     for(nat i = 0; i < _M; ++i) _taula[i] = nullptr;
@@ -171,21 +171,15 @@ Valor cataleg<Valor>::operator[](const string &k) const
 {
     int i = hash(k);
     node_hash *act = _taula[i];
-    bool trobat = false;
-    Valor v{};
 
-    while(act && !trobat)
+    while(act)
     {
-        if(act->_k == k) 
-        { 
-            v = act->_v; 
-            trobat = true; 
-        }
-        else act = act->_seg;
+        if(act->_k == k)
+            return act->_v;
+        act = act->_seg;
     }
 
-    if(!trobat) throw error(ClauInexistent);
-    return v;
+    throw error(ClauInexistent);
 }
 
 // Pre: Existeix un P.I vàlid.
