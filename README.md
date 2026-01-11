@@ -6,27 +6,6 @@ Projecte d'Estructures de la Informació (ESIN) - Universitat Politècnica de Ca
 
 Aquest projecte implementa un **sistema de gestió de contenidors** en una terminal portuària. Simula el funcionament d'un magatzem 3D on s'emmagatzemen contenidors de diferents mides, amb una grua que els col·loca i retira seguint diferents estratègies d'ubicació.
 
-## Estructura del Projecte
-
-```
-Container-Manager/
-├── include/              # Capçaleres (.hpp)
-│   ├── contenidor.hpp    # Classe contenidor
-│   ├── ubicacio.hpp      # Classe ubicació
-│   ├── cataleg.hpp       # Classe catàleg (template)
-│   ├── terminal.hpp      # Classe terminal
-│   └── reps/             # Representacions internes
-├── src/                  # Implementacions (.cpp)
-│   ├── contenidor.cpp
-│   ├── ubicacio.cpp
-│   ├── cataleg.cpp
-│   └── terminal.cpp
-├── bin/                  # Executables i biblioteques
-├── build/                # Arxius objecte (.o)
-├── tests/                # Tests del projecte
-└── docs/                 # Documentació
-```
-
 ## Classes Principals
 
 ### Contenidor
@@ -42,7 +21,7 @@ Representa una posició 3D dins el magatzem:
 
 ### Catàleg
 Taula de dispersió (hash table) genèrica que permet:
-- Cercar contenidors per matrícula en O(1) amortitzat
+- Cercar contenidors per matrícula amb cost O(1)
 - Guardar informació associada (contenidor + ubicació)
 
 ### Terminal
@@ -245,8 +224,4 @@ On `k` és el nombre de contenidors a l'àrea d'espera.
 
 ## Autors
 
-Projecte desenvolupat per a l'assignatura ESIN - UPC
-
-## Llicència
-
-Projecte acadèmic - Tots els drets reservats
+Projecte desenvolupat per a l'assignatura ESIN - UPC per Guillem Lago Bonilla i Joan Lozano Funosas
